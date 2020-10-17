@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "description": "Authorization for Blitz.js",
   "devDependencies": {
-    "blitz": "^0.24.1",
-    "@prisma/client": "^2.6.2"
+    "@prisma/client": "^2.6.2",
+    "blitz": "^0.24.1"
   },
   "peerDependencies": {
-    "blitz": "^0.24.1",
-    "@prisma/client": "^2.6.2"
+    "@prisma/client": "^2.6.2",
+    "blitz": "^0.24.1"
   },
   "scripts": {
     "clean": "rimraf dist",
@@ -19,6 +19,7 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "middleware": "dist/middleware.js",
   "typescript": {
     "definition": "dist/index.d.ts"
   },
@@ -43,6 +44,7 @@
   },
   "homepage": "https://github.com/ntgussoni/blitz-guard#readme",
   "dependencies": {
-    "runtypes": "^5.0.1"
+    "runtypes": "^5.0.1",
+    "chalk": "^4.1.0"
   }
 }

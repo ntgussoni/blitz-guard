@@ -1,1 +1,21 @@
+.log
+.DS_Store
+.jest-*
+lib
 node_modules
+reports
+*.log
+**/coverage
+.yarn
+.yarnrc
+tsconfig.tsbuildinfo
+.blitz
+.next
+# dist
+.now
+# local env files
+**/.env.local
+**/.env.*.local
+**/.envrc
+.blitz-*
+.blitz-cli-cache

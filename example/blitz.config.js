@@ -1,9 +1,14 @@
+// This import should be fixed??
+const { BlitzGuardMiddleware } = require("blitz-guard/dist/middleware")
 const { sessionMiddleware, unstable_simpleRolesIsAuthorized } = require("@blitzjs/server")
 
 module.exports = {
   middleware: [
     sessionMiddleware({
       unstable_isAuthorized: unstable_simpleRolesIsAuthorized,
+    }),
+    BlitzGuardMiddleware({
+      excluded: ["/api/auth/mutations/login"],
     }),
   ],
   /* Uncomment this to customize the webpack config

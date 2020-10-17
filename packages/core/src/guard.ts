@@ -20,18 +20,20 @@ export const GuardPrismaActions = Union(
   Literal("aggregate"),
 )
 
+const Manage = Literal("manage")
+
 export const BasicAbilities = Union(
   Literal("create"),
   Literal("read"),
   Literal("update"),
   Literal("delete"),
-  Literal("manage"),
+  Manage,
 )
 
 export type AbilityType = Static<typeof BasicAbilities> | (string & {})
 
 const isAbility = (ruleAbility: AbilityType, ability: AbilityType) =>
-  ruleAbility === (ability as AbilityType)
+  ruleAbility === ability || ruleAbility === Manage.value
 
 // This should change with this https://github.com/prisma/prisma/issues/3545
 export type ResourceType =
@@ -98,7 +100,7 @@ const Guard: GuardConstructor = class Guard implements IGuard {
     for (let i = 0; i < reversedRules.length; i++) {
       const rule = reversedRules[i]
 
-      const matchAll = rule.resource === "all" && rule.ability === "manage"
+      const matchAll = rule.resource === "all" && rule.ability === Manage.value
 
       if (matchAll) {
         can = rule.behavior

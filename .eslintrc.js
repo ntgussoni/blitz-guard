@@ -21,7 +21,7 @@ module.exports = {
     "@typescript-eslint/no-floating-promises": "error",
     "no-use-before-define": ["error", { functions: false, classes: false }],
   },
-  ignorePatterns: [".eslintrc.js"],
+  ignorePatterns: [".eslintrc.js", "packages/recipe/templates/**"],
   overrides: [
     {
       files: ["packages/**"],

@@ -21,6 +21,8 @@
     "moduleResolution": "node",
     "jsx": "react",
     "esModuleInterop": true,
-    "noEmit": true
+    "noEmit": true,
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo"
   }
 }

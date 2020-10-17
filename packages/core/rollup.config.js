@@ -21,7 +21,7 @@ const common = {
       transformers: [],
     }),
     commonjs({
-      include: /node_modules/,
+      include: "node_modules/**",
       namedExports: {},
     }),
   ],
@@ -38,5 +38,16 @@ const lib = {
   ...common,
 }
 
+const middleware = {
+  input: "./src/middleware.ts",
+  output: {
+    file: pkg["middleware"],
+    exports: "named",
+    sourcemap: "true",
+    format: "cjs",
+  },
+  ...common,
+}
+
 // eslint-disable-next-line
-export default [lib]
+export default [lib, middleware]
