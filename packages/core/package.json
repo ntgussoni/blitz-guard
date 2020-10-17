@@ -1,0 +1,48 @@
+{
+  "name": "@blitz-guard/core",
+  "version": "0.1.0",
+  "description": "Authorization for Blitz.js",
+  "devDependencies": {
+    "blitz": "^0.24.1",
+    "@prisma/client": "^2.6.2"
+  },
+  "peerDependencies": {
+    "blitz": "^0.24.1",
+    "@prisma/client": "^2.6.2"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "dev": "rollup -c rollup.config.js --watch",
+    "build": "rollup -c rollup.config.js",
+    "test": "tsdx test"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "typescript": {
+    "definition": "dist/index.d.ts"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntgussoni/blitz-guard.git"
+  },
+  "keywords": [
+    "blitz",
+    "blitzjs",
+    "guard",
+    "cancan",
+    "authorization"
+  ],
+  "author": "Nicolas Torres <ntorres.dev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ntgussoni/blitz-guard/issues"
+  },
+  "homepage": "https://github.com/ntgussoni/blitz-guard#readme",
+  "dependencies": {
+    "runtypes": "^5.0.1"
+  }
+}
