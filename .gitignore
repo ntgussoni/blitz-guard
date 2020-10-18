@@ -19,3 +19,4 @@ tsconfig.tsbuildinfo
 **/.envrc
 .blitz-*
 .blitz-cli-cache
+dist

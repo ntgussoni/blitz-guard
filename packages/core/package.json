@@ -2,11 +2,6 @@
   "name": "@blitz-guard/core",
   "version": "0.1.0",
   "description": "Authorization for Blitz.js",
-  "devDependencies": {
-    "@prisma/client": "^2.6.2",
-    "blitz": "^0.24.1",
-    "chalk": "^4.1.0"
-  },
   "peerDependencies": {
     "@prisma/client": "^2.6.2",
     "blitz": "^0.24.1"
