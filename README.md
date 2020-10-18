@@ -1,4 +1,6 @@
-![Blitz Guard](blitz-guard.png)
+<p align="center">
+ <img src="blitz-guard.png" width="500px" />
+</p>
 
 Easy authorization for Blitz.js
 
