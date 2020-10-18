@@ -12,6 +12,17 @@
   "commitConvention": "none",
   "contributors": [
     {
+      "login": "cherta",
+      "name": "Gabriel Chertok",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/373454?v=4",
+      "profile": "https://github.com/cherta",
+      "contributions": [
+        "code",
+        "bug",
+        "doc"
+      ]
+    },
+       {
       "login": "ntgussoni",
       "name": "Nicolas Torres",
       "avatar_url": "https://avatars0.githubusercontent.com/u/10161067?v=4",
