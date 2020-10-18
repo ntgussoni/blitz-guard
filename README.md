@@ -9,6 +9,7 @@ Easy authorization for Blitz.js
 ```blitz install ntgussoni/blitz-guard```
 
 
+# Thank you!
  <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
  <!-- ALL-CONTRIBUTORS-LIST:END -->
