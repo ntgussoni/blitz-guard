@@ -6,12 +6,15 @@
     "dev": "lerna run dev --no-private --stream --parallel",
     "build": "lerna run build --no-private --stream",
     "lint": "eslint --ignore-path .gitignore --ext \".js,.ts,.tsx\" .",
-    "test": "yarn run lint && yarn run build && lerna run test --stream",
     "reset": "rimraf node_modules && git clean -xfd packages && yarn",
 		"typecheck": "lerna exec -- tsc --noEmit",
     "typecheck:changed": "lerna exec --since origin/main --include-dependents -- tsc --noEmit",
+		"test": "yarn run lint && yarn run build && lerna run test --stream",
     "test:packages": "yarn run build && yarn testonly:packages",
-    "test:example": "yarn run build && yarn testonly:example"
+    "test:examples": "yarn run build && yarn testonly:examples",
+    "testonly": "yarn test:packages && yarn test:examples",
+    "testonly:packages": "lerna run test --stream --scope @blitz-guard/*",
+    "testonly:examples": "lerna run test --stream --scope @example --concurrency 1"
   },
   "engines": {
     "node": ">= 10.13.0"
