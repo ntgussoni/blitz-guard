@@ -11,16 +11,17 @@
     "typecheck:changed": "lerna exec --since origin/main --include-dependents -- tsc --noEmit",
 		"test": "yarn run lint && yarn run build && lerna run test --stream",
     "test:packages": "yarn run build && yarn testonly:packages",
-    "test:examples": "yarn run build && yarn testonly:examples",
-    "testonly": "yarn test:packages && yarn test:examples",
+    "test:example": "yarn run build && yarn testonly:example",
+    "testonly": "yarn test:packages && yarn test:example",
     "testonly:packages": "lerna run test --stream --scope @blitz-guard/*",
-    "testonly:examples": "lerna run test --stream --scope @example --concurrency 1"
+    "testonly:example": "lerna run test --stream --scope example --concurrency 1"
   },
   "engines": {
     "node": ">= 10.13.0"
   },
   "workspaces": [
-    "packages/*"
+		"packages/*",
+		"example"
   ],
   "devDependencies": {
     "rimraf": "3.0.2",

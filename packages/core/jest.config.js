@@ -11,8 +11,10 @@ module.exports = {
   collectCoverageFrom: [
     "**/*.{js,jsx,ts,tsx}",
     "!**/*.d.ts",
+    "!*.config.{js,ts}",
     "!**/templates/**",
     "!**/node_modules/**",
+    "!node_modules/**",
   ],
 
   globals: {

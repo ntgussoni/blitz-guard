@@ -119,7 +119,7 @@ jobs:
         run: yarn build
         env:
           CI: true
-      - name: Test examples
-        run: yarn testonly:examples
+      - name: Test example
+        run: yarn testonly:example
         env:
           CI: true
