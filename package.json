@@ -7,9 +7,9 @@
     "build": "lerna run build --no-private --stream --ignore example",
     "lint": "eslint --ignore-path .gitignore --ext \".js,.ts,.tsx\" .",
     "reset": "rimraf node_modules && git clean -xfd packages && yarn",
-		"typecheck": "lerna exec -- tsc --noEmit",
+    "typecheck": "lerna exec -- tsc --noEmit",
     "typecheck:changed": "lerna exec --since origin/main --include-dependents -- tsc --noEmit",
-		"test": "yarn run lint && yarn run build && lerna run test --stream",
+    "test": "yarn run lint && yarn run build && lerna run test --stream",
     "test:packages": "yarn run build && yarn testonly:packages",
     "test:example": "yarn run build && yarn testonly:example",
     "testonly": "yarn test:packages && yarn test:example",
@@ -20,16 +20,28 @@
     "node": ">= 10.13.0"
   },
   "workspaces": [
-		"packages/*",
-		"example"
+    "packages/*",
+    "example"
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && pretty-quick --staged",
+      "pre-push": "yarn lint",
+      "post-rebase": "yarn install"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
   "devDependencies": {
     "rimraf": "3.0.2",
-		"rollup": "2.26.8",
-		"blitz": "^0.24.1",
-		"react": "0.0.0-experimental-7f28234f8",
+    "rollup": "2.26.8",
+    "blitz": "^0.24.1",
+    "react": "0.0.0-experimental-7f28234f8",
     "react-dom": "0.0.0-experimental-7f28234f8",
-		"@prisma/client": "^2.6.2",
+    "@prisma/client": "^2.6.2",
     "@wessberg/rollup-plugin-ts": "1.3.3",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-json": "4.0.0",
@@ -40,13 +52,13 @@
     "@testing-library/react": "10.0.3",
     "@testing-library/react-hooks": "3.3.0",
     "@typescript-eslint/eslint-plugin": "4.3.1-alpha.1",
-		"@typescript-eslint/parser": "4.3.1-alpha.1",
-		"jest-environment-jsdom-fourteen": "1.0.1",
-		"babel-eslint": "10.x",
-		"jest": "24.9.0",
-		"@types/react": "16.9.34",
-		"jest-environment-jsdom-sixteen": "1.0.3",
-		"ts-jest": "24.3.0",
+    "@typescript-eslint/parser": "4.3.1-alpha.1",
+    "jest-environment-jsdom-fourteen": "1.0.1",
+    "babel-eslint": "10.x",
+    "jest": "24.9.0",
+    "@types/react": "16.9.34",
+    "jest-environment-jsdom-sixteen": "1.0.3",
+    "ts-jest": "24.3.0",
     "babel-jest": "26.3.0",
     "eslint": "7.7.0",
     "eslint-config-react-app": "5.2.1",

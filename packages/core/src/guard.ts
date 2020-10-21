@@ -86,10 +86,10 @@ const Guard = class Guard<T> implements IGuard<T> {
     } catch (e) {
       throw new Error(`GUARD: You should not throw errors in the ability file \n\r ${e}`)
     }
-    const reversedRules = this.rules.reverse()
+
     let can = true
-    for (let i = 0; i < reversedRules.length; i++) {
-      const rule = reversedRules[i]
+    for (let i = 0; i < this.rules.length; i++) {
+      const rule = this.rules[i]
 
       const matchAll = rule.resource === All.value && rule.ability === Manage.value
 
@@ -121,7 +121,7 @@ const Guard = class Guard<T> implements IGuard<T> {
     resource: ResourceType<T>,
     guard: (params: any) => Promise<boolean>,
   ) => {
-    this.rules = [...this.rules, { behavior: true, ability, resource, guard }]
+    this.rules = [{ behavior: true, ability, resource, guard }, ...this.rules]
   }
 
   cannot = (
@@ -129,7 +129,7 @@ const Guard = class Guard<T> implements IGuard<T> {
     resource: ResourceType<T>,
     guard: (params: any) => Promise<boolean>,
   ) => {
-    this.rules = [...this.rules, { behavior: false, ability, resource, guard }]
+    this.rules = [{ behavior: false, ability, resource, guard }, ...this.rules]
   }
 }
 

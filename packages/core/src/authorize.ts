@@ -10,7 +10,6 @@ export const authorizeInit = <T>(GuardInstance: IGuard<T>) => <U>(
 ) => async (args: U, ctx: Ctx & { securedByGuard: boolean }) => {
   ctx.securedByGuard = true
   const isAuthorized = await GuardInstance.test(ctx, args, ability, resource)
-  console.log(isAuthorized)
   if (!isAuthorized) throw new AuthorizationError("GUARD: UNAUTHORIZED")
 
   return resolver(args, ctx as Ctx & { securedByGuard: boolean })
