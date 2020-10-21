@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "predev": "lerna run clean --no-private --stream --parallel",
-    "dev": "lerna run dev --no-private --stream --parallel",
-    "build": "lerna run build --no-private --stream",
+    "dev": "lerna run dev --no-private --stream --parallel --ignore example",
+    "build": "lerna run build --no-private --stream --ignore example",
     "lint": "eslint --ignore-path .gitignore --ext \".js,.ts,.tsx\" .",
     "reset": "rimraf node_modules && git clean -xfd packages && yarn",
 		"typecheck": "lerna exec -- tsc --noEmit",
