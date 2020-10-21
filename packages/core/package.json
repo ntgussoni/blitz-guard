@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "description": "Authorization for Blitz.js",
   "peerDependencies": {
-    "@prisma/client": "^2.6.2",
     "blitz": "^0.24.1"
   },
   "scripts": {
     "clean": "rimraf dist",
     "dev": "rollup -c rollup.config.js --watch",
-    "build": "rollup -c rollup.config.js",
-    "test": "tsdx test"
+		"build": "rollup -c rollup.config.js",
+		"watch": "tsdx test --watch",
+		"test": "tsdx test --coverage",
+		"test:watch": "tsdx test --watch"
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -41,5 +42,8 @@
   "homepage": "https://github.com/ntgussoni/blitz-guard#readme",
   "dependencies": {
     "runtypes": "^5.0.1"
-  }
+	},
+	"devDependencies": {
+		"babel-jest": "26.3.0"
+	}
 }

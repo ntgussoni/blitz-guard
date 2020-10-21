@@ -3,9 +3,9 @@ import { AbilityType, ResourceType, IGuard } from "@blitz-guard/core"
 
 type ResolverType<U> = (args: U, ctx: Ctx) => any
 
-export const authorizeInit = (GuardInstance: IGuard) => <U>(
+export const authorizeInit = <T>(GuardInstance: IGuard<T>) => <U>(
   ability: AbilityType,
-  resource: ResourceType,
+  resource: ResourceType<T>,
   resolver: ResolverType<U>,
 ) => async (args: U, ctx: Ctx & { securedByGuard: boolean }) => {
   ctx.securedByGuard = true

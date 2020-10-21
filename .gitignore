@@ -5,7 +5,7 @@ lib
 node_modules
 reports
 *.log
-**/coverage
+**/.coverage
 .yarn
 .yarnrc
 tsconfig.tsbuildinfo
@@ -20,3 +20,4 @@ tsconfig.tsbuildinfo
 .blitz-*
 .blitz-cli-cache
 dist
+
