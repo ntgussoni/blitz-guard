@@ -71,7 +71,6 @@
     "jest-environment-jsdom-fourteen": "1.0.1",
     "jest-environment-jsdom-sixteen": "1.0.3",
     "lerna": "^3.22.1",
-    "lerna-changelog": "^1.0.1",
     "prettier": "2.1.1",
     "pretty-quick": "2.0.1",
     "react": "0.0.0-experimental-7f28234f8",
