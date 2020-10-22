@@ -3,5 +3,15 @@
   "packages": ["packages/*", "example"],
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "command": {
+    "version": {
+      "exact": true
+    },
+    "publish": {
+      "npmClient": "npm",
+      "allowBranch": ["master", "canary"],
+      "registry": "https://registry.npmjs.org/"
+    }
+  }
 }

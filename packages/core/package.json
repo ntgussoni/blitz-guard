@@ -1,6 +1,6 @@
 {
   "name": "@blitz-guard/core",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "Authorization for Blitz.js",
   "peerDependencies": {
     "blitz": "^0.24.1"
@@ -45,5 +45,6 @@
   },
   "devDependencies": {
     "babel-jest": "26.3.0"
-  }
+  },
+  "gitHead": "b01d01b3bc64e97aafa14951793e1c1ab6296062"
 }
