@@ -1,6 +1,6 @@
 {
   "name": "@blitz-guard/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Authorization for Blitz.js",
   "peerDependencies": {
     "blitz": "^0.24.1"
@@ -8,10 +8,10 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev": "rollup -c rollup.config.js --watch",
-		"build": "rollup -c rollup.config.js",
-		"watch": "tsdx test --watch",
-		"test": "tsdx test --coverage",
-		"test:watch": "tsdx test --watch"
+    "build": "rollup -c rollup.config.js",
+    "watch": "tsdx test --watch",
+    "test": "tsdx test --coverage",
+    "test:watch": "tsdx test --watch"
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -42,8 +42,8 @@
   "homepage": "https://github.com/ntgussoni/blitz-guard#readme",
   "dependencies": {
     "runtypes": "^5.0.1"
-	},
-	"devDependencies": {
-		"babel-jest": "26.3.0"
-	}
+  },
+  "devDependencies": {
+    "babel-jest": "26.3.0"
+  }
 }
