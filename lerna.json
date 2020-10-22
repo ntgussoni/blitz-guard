@@ -1,5 +1,4 @@
 {
-  "lerna": "3.22.1",
   "packages": ["packages/*", "example"],
   "npmClient": "yarn",
   "useWorkspaces": true,
@@ -10,7 +9,7 @@
     },
     "publish": {
       "npmClient": "npm",
-      "allowBranch": ["master", "canary"],
+      "allowBranch": ["main", "canary"],
       "registry": "https://registry.npmjs.org/"
     }
   }
