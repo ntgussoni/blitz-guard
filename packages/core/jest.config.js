@@ -1,7 +1,7 @@
 module.exports = {
   preset: "ts-jest",
-  testEnvironment: "node",
-  moduleFileExtensions: ["ts", "js", "json"],
+  testEnvironment: "jest-environment-jsdom-fourteen",
+  moduleFileExtensions: ["tsx", "ts", "js", "json"],
   coverageReporters: ["json", "lcov", "text", "clover"],
   // collectCoverage: !!`Boolean(process.env.CI)`,
   modulePathIgnorePatterns: ["<rootDir>/tmp", "<rootDir>/lib"],
@@ -14,7 +14,6 @@ module.exports = {
     "!*.config.{js,ts}",
     "!**/templates/**",
     "!**/node_modules/**",
-    "!node_modules/**",
   ],
 
   globals: {
