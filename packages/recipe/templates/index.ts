@@ -1,7 +1,7 @@
 import { GuardInit, authorizeInit, useGuardInit } from "blitz-guard"
 import db from "db"
 import ability from "app/guard/ability"
-import getAbilityInit from "app/guard/getAbility"
+import getAbilityInit from "app/guard/queries/getAbility"
 
 const Guard = GuardInit<typeof db>(ability)
 export const getAbility = getAbilityInit(Guard)
