@@ -1,6 +1,6 @@
 {
   "name": "@blitz-guard/core",
-  "version": "0.1.3",
+  "version": "0.1.4-canary.0",
   "description": "Authorization for Blitz.js",
   "peerDependencies": {
     "blitz": "^0.24.1"
@@ -49,14 +49,14 @@
     "runtypes": "^5.0.1"
   },
   "devDependencies": {
+    "@testing-library/react": "10.0.3",
     "@testing-library/react-hooks": "3.4.2",
     "@types/react-dom": "16.9.8",
     "babel-jest": "26.3.0",
+    "jest-environment-jsdom-fourteen": "1.0.1",
     "react": "0.0.0-experimental-7f28234f8",
     "react-dom": "0.0.0-experimental-7f28234f8",
-    "react-test-renderer": "^16.9.0",
-    "@testing-library/react": "10.0.3",
-    "jest-environment-jsdom-fourteen": "1.0.1"
+    "react-test-renderer": "^16.9.0"
   },
   "gitHead": "25dc72d896f4b23a6fb2d70675498e014b4ceb1b"
 }
