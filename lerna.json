@@ -2,7 +2,7 @@
   "packages": ["packages/*", "example", "docs"],
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "version": "0.1.10",
+  "version": "0.1.11",
   "command": {
     "version": {
       "exact": true

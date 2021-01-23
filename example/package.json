@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "scripts": {
     "start": "rimraf .blitz && blitz start",
     "studio": "blitz db studio",
