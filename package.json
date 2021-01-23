@@ -1,7 +1,6 @@
 {
   "name": "root",
   "private": true,
-  "main": "packages/recipe/index.ts",
   "scripts": {
     "postinstall": "npm rebuild husky && patch-package",
     "predev": "lerna run clean --no-private --stream --parallel",
@@ -17,10 +16,10 @@
     "testonly": "yarn test:packages && yarn test:example",
     "testonly:packages": "lerna run test --stream --scope @blitz-guard/*",
     "testonly:example": "lerna run test --stream --scope example --concurrency 1",
-    "publish-prep": "lerna run clean && yarn && yarn build",
-    "publish-canary": "yarn run publish-prep && lerna publish --force-publish --preid canary --pre-dist-tag canary",
+    "publish-prep": "lerna run clean && yarn && yarn build && cp README.md packages/core/README.md ",
+    "publish-canary": "yarn run publish-prep && lerna publish --force-publish --preid canary --pre-dist-tag canary && rimraf packages/core/README.md",
+    "publish-latest": "yarn run publish-prep && lerna publish --force-publish && yarn run publish-docs && rimraf packages/core/README.md",
     "publish-docs": "cd docs && yarn publish",
-    "publish-latest": "yarn run publish-prep && lerna publish --force-publish && yarn run publish-docs",
     "publish-gh-release": "yarn release"
   },
   "repository": {
