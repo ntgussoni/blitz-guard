@@ -19,7 +19,7 @@
     "publish-prep": "lerna run clean && yarn && yarn build && cp README.md packages/core/README.md ",
     "publish-canary": "yarn run publish-prep && lerna publish --force-publish --preid canary --pre-dist-tag canary && rimraf packages/core/README.md",
     "publish-latest": "yarn run publish-prep && lerna publish --force-publish && yarn run publish-docs && rimraf packages/core/README.md",
-    "publish-docs": "cd docs && yarn publish",
+    "publish-docs": "cd docs && yarn deploy",
     "publish-gh-release": "yarn release"
   },
   "repository": {
