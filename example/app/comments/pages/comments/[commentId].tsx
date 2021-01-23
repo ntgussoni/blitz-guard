@@ -3,11 +3,13 @@ import Layout from "app/layouts/Layout"
 import { Link, useRouter, useQuery, useParam, BlitzPage, useMutation } from "blitz"
 import getComment from "app/comments/queries/getComment"
 import deleteComment from "app/comments/mutations/deleteComment"
+import { useGuard } from "app/guard"
 
 export const Comment = () => {
   const router = useRouter()
   const commentId = useParam("commentId", "number")
   const [comment] = useQuery(getComment, { where: { id: commentId } })
+  const [[canEditComment]] = useGuard([["read", "comment"]])
   const [deleteCommentMutation] = useMutation(deleteComment)
 
   return (
@@ -15,9 +17,11 @@ export const Comment = () => {
       <h1>Comment {comment.id}</h1>
       <pre>{JSON.stringify(comment, null, 2)}</pre>
 
-      <Link href="/comments/[commentId]/edit" as={`/comments/${comment.id}/edit`}>
-        <a>Edit</a>
-      </Link>
+      {canEditComment && (
+        <Link href="/comments/[commentId]/edit" as={`/comments/${comment.id}/edit`}>
+          <a>Edit</a>
+        </Link>
+      )}
 
       <button
         type="button"

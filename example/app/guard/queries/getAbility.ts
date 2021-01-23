@@ -1,2 +1,2 @@
-import { getAbility } from "../index"
+import { getAbility } from "app/guard"
 export default getAbility
