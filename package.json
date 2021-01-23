@@ -1,6 +1,7 @@
 {
   "name": "root",
   "private": true,
+  "main": "packages/recipe/index.ts",
   "scripts": {
     "postinstall": "npm rebuild husky && patch-package",
     "predev": "lerna run clean --no-private --stream --parallel",

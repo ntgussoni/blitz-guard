@@ -1,8 +1,8 @@
 module.exports = {
   title: "Blitz Guard",
   tagline: "Simple authentication for Blitz.js",
-  url: "https://github.com/ntgussoni/blitz-guard",
-  baseUrl: "/",
+  url: "https://ntgussoni.github.io/",
+  baseUrl: "/blitz-guard/",
   onBrokenLinks: "throw",
   favicon: "img/favicon.ico",
   organizationName: "ntgussoni", // Usually your GitHub org/user name.
@@ -29,21 +29,6 @@ module.exports = {
     },
     footer: {
       style: "dark",
-      links: [
-        {
-          title: "Docs",
-          items: [
-            {
-              label: "Style Guide",
-              to: "docs/",
-            },
-            {
-              label: "Second Doc",
-              to: "docs/doc2/",
-            },
-          ],
-        },
-      ],
       copyright: `Copyright © ${new Date().getFullYear()} Blitz Guard, Inc. Built with Docusaurus.`,
     },
   },
