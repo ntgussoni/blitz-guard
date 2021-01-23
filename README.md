@@ -12,7 +12,7 @@ Using the recipe is the easiest way. It will add the packages and create the bas
 
 ## Get started
 
-[See the docs]()
+[See the docs](https://ntgussoni.github.io/blitz-guard)
 
 ## Contributors
 
