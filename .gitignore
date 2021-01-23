@@ -20,4 +20,4 @@ tsconfig.tsbuildinfo
 .blitz-*
 .blitz-cli-cache
 dist
-
+docs/build

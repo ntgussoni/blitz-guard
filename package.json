@@ -19,7 +19,9 @@
     "testonly:example": "lerna run test --stream --scope example --concurrency 1",
     "publish-prep": "lerna run clean && yarn && yarn build",
     "publish-canary": "yarn run publish-prep && lerna publish --force-publish --preid canary --pre-dist-tag canary",
-    "publish-latest": "yarn run publish-prep && lerna publish --force-publish"
+    "publish-docs": "cd docs && yarn publish",
+    "publish-latest": "yarn run publish-prep && lerna publish --force-publish && yarn run publish-docs",
+    "publish-gh-release": "yarn release"
   },
   "repository": {
     "type": "git",
