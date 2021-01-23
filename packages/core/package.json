@@ -1,6 +1,6 @@
 {
   "name": "@blitz-guard/core",
-  "version": "0.1.4-canary.0",
+  "version": "0.1.4",
   "description": "Authorization for Blitz.js",
   "peerDependencies": {
     "blitz": "^0.24.1"
@@ -58,5 +58,5 @@
     "react-dom": "0.0.0-experimental-7f28234f8",
     "react-test-renderer": "^16.9.0"
   },
-  "gitHead": "25dc72d896f4b23a6fb2d70675498e014b4ceb1b"
+  "gitHead": "23c9e8634b0698ebb51742b0cf644b4a31853400"
 }

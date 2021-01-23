@@ -2,7 +2,7 @@
   "packages": ["packages/*", "example"],
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "version": "0.1.4-canary.0",
+  "version": "0.1.4",
   "command": {
     "version": {
       "exact": true

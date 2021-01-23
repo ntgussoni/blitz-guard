@@ -1,7 +1,7 @@
 {
   "name": "@blitz-guard/recipe",
   "private": true,
-  "version": "0.1.4-canary.0",
+  "version": "0.1.4",
   "description": "The Blitz.js Recipe to add Guard authorization for Blitz.js",
   "main": "index.ts",
   "scripts": {
