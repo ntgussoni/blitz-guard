@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "scripts": {
     "start": "rimraf .blitz && blitz start",
     "studio": "blitz db studio",
@@ -31,10 +31,10 @@
     ]
   },
   "dependencies": {
+    "@blitz-guard/core": "link:../packages/core",
     "@prisma/cli": "2.9.0",
     "@prisma/client": "2.9.0",
     "blitz": "0.24.3",
-    "blitz-guard": "link:../packages/core",
     "final-form": "4.20.1",
     "react": "0.0.0-experimental-7f28234f8",
     "react-dom": "0.0.0-experimental-7f28234f8",

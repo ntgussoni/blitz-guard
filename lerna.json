@@ -1,8 +1,8 @@
 {
-  "packages": ["packages/*", "example"],
+  "packages": ["packages/*", "example", "docs"],
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "version": "0.1.9",
+  "version": "0.1.10",
   "command": {
     "version": {
       "exact": true
