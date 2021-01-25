@@ -10,7 +10,7 @@ The hook lets you do a permissions check in the frontend.
 ```typescript
 import { useGuard } from "app/guard"
 
-const [[canCreateComment, canDeleteComment], { isLoading }] = useCanCan([
+const [[canCreateComment, canDeleteComment], { isLoading }] = useGuard([
   ["create", "comment"],
   ["delete", "comment" /* args */],
 ])
