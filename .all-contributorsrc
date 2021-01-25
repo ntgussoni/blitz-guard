@@ -32,6 +32,15 @@
         "bug",
         "doc"
       ]
+    },
+    {
+      "login": "Fralez",
+      "name": "Franco González",
+      "avatar_url": "https://avatars.githubusercontent.com/u/40028772?v=4",
+      "profile": "https://github.com/Fralez",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 8,
