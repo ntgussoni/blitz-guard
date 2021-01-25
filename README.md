@@ -4,6 +4,8 @@
 
 > Easy authorization for Blitz.js
 
+> :warning: **This is a beta release and it might change soon**
+
 # Install
 
 Using the recipe is the easiest way. It will add the packages and create the base configuration files.
