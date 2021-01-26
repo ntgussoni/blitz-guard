@@ -45,8 +45,8 @@ export type CanType<T, R> = (
 ) => Promise<boolean>
 
 export type AbilitiesParamsType<T, R> = { can: _CanType<T, R>; cannot: _CannotType<T, R> }
-type IAbilities<T, R> = (ctx: Ctx, params: AbilitiesParamsType<T, R>) => Promise<void>
-type RuleType<T, R> = {
+export type IAbilities<T, R> = (ctx: Ctx, params: AbilitiesParamsType<T, R>) => Promise<void>
+export type RuleType<T, R> = {
   behavior: boolean
   ability: AbilityType<R>
   resource: ResourceType<T>

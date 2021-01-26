@@ -1,14 +1,14 @@
-import React, { Suspense } from "react"
+import { Suspense } from "react"
 import Layout from "app/layouts/Layout"
 import { Link, usePaginatedQuery, useRouter, BlitzPage } from "blitz"
-import getComments from "app/comments/queries/getComments"
+import getProjects from "app/projects/queries/getProjects"
 
 const ITEMS_PER_PAGE = 100
 
-export const CommentsList = () => {
+export const ProjectsList = () => {
   const router = useRouter()
   const page = Number(router.query.page) || 0
-  const [{ comments, hasMore }] = usePaginatedQuery(getComments, {
+  const [{ projects, hasMore }] = usePaginatedQuery(getProjects, {
     orderBy: { id: "asc" },
     skip: ITEMS_PER_PAGE * page,
     take: ITEMS_PER_PAGE,
@@ -20,10 +20,10 @@ export const CommentsList = () => {
   return (
     <div>
       <ul>
-        {comments.map((comment) => (
-          <li key={comment.id}>
-            <Link href="/comments/[commentId]" as={`/comments/${comment.id}`}>
-              <a>{comment.text}</a>
+        {projects.map((project) => (
+          <li key={project.id}>
+            <Link href={`/projects/${project.id}`}>
+              <a>{project.title}</a>
             </Link>
           </li>
         ))}
@@ -39,22 +39,22 @@ export const CommentsList = () => {
   )
 }
 
-const CommentsPage: BlitzPage = () => {
+const ProjectsPage: BlitzPage = () => {
   return (
     <div>
       <p>
-        <Link href="/comments/new">
-          <a>Create Comment</a>
+        <Link href="/projects/new">
+          <a>Create Project</a>
         </Link>
       </p>
 
       <Suspense fallback={<div>Loading...</div>}>
-        <CommentsList />
+        <ProjectsList />
       </Suspense>
     </div>
   )
 }
 
-CommentsPage.getLayout = (page) => <Layout title={"Comments"}>{page}</Layout>
+ProjectsPage.getLayout = (page) => <Layout title={"Projects"}>{page}</Layout>
 
-export default CommentsPage
+export default ProjectsPage

@@ -1,11 +1,11 @@
 import React from "react"
 
-type CommentFormProps = {
+type ProjectFormProps = {
   initialValues: any
   onSubmit: React.FormEventHandler<HTMLFormElement>
 }
 
-const CommentForm = ({ initialValues, onSubmit }: CommentFormProps) => {
+const ProjectForm = ({ initialValues, onSubmit }: ProjectFormProps) => {
   return (
     <form
       onSubmit={(event) => {
@@ -20,4 +20,4 @@ const CommentForm = ({ initialValues, onSubmit }: CommentFormProps) => {
   )
 }
 
-export default CommentForm
+export default ProjectForm

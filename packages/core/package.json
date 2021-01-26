@@ -15,11 +15,8 @@
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/packages/core/src/index.d.ts",
   "middleware": "dist/middleware.js",
-  "typescript": {
-    "definition": "dist/index.d.ts"
-  },
   "files": [
     "dist"
   ],

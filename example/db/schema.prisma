@@ -1,11 +1,16 @@
-generator client {
-  provider = "prisma-client-js"
-}
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// --------------------------------------
 
 model User {
   id             Int       @id @default(autoincrement())
@@ -24,17 +29,17 @@ model Session {
   updatedAt          DateTime  @updatedAt
   expiresAt          DateTime?
   handle             String    @unique
+  user               User?     @relation(fields: [userId], references: [id])
   userId             Int?
   hashedSessionToken String?
   antiCSRFToken      String?
   publicData         String?
   privateData        String?
-  user               User?     @relation(fields: [userId], references: [id])
 }
 
-model Comment {
+model Project {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  text      String
+  title     String
 }
