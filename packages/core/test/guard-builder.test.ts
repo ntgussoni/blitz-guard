@@ -1,11 +1,11 @@
-import { GuardInit } from "@blitz-guard/core"
+import { GuardBuilder } from "@blitz-guard/core"
 
-describe("GuardInit", () => {
+describe("GuardBuilder", () => {
   describe("with no ability file", () => {
     it("throws an error", () => {
       expect(() => {
         // @ts-expect-error
-        GuardInit()
+        GuardBuilder()
       }).toThrow("GUARD: Ability file not present")
     })
   })

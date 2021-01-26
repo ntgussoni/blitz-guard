@@ -13,8 +13,7 @@ Eg.
 ```typescript
 import { Ctx } from "blitz"
 import { db } from "db"
-import { IGuard } from "blitz-guard"
-import { DeleteCommentInput } from "app/comments/mutations/deleteComments"
+import { IGuard } from "@blitz-guard/core"
 
 export default async function ability(ctx: Ctx, { can, cannot }: IGuard) {
   cannot("manage", "comment")
@@ -33,3 +32,16 @@ export default async function ability(ctx: Ctx, { can, cannot }: IGuard) {
   }
 }
 ```
+
+## Can & Cannot
+
+This two methods will allow you to create the rules. Can
+
+```
+can(ability, resource, guard)
+cannot(ability, resource, guard)
+```
+
+- **ability**: `create, read, update, delete, manage, string`
+- **resource**: `*your prisma models*, all, string`
+- **guard**: `async (args) => boolean`

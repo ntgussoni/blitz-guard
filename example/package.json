@@ -32,9 +32,8 @@
   },
   "dependencies": {
     "@blitz-guard/core": "link:../packages/core",
-    "@prisma/cli": "2.9.0",
     "@prisma/client": "2.9.0",
-    "blitz": "0.24.3",
+    "blitz": "0.29.5",
     "final-form": "4.20.1",
     "react": "0.0.0-experimental-7f28234f8",
     "react-dom": "0.0.0-experimental-7f28234f8",
@@ -44,6 +43,7 @@
     "zod": "1.11.9"
   },
   "devDependencies": {
+    "@prisma/cli": "2.15.0",
     "@testing-library/jest-dom": "5.11.4",
     "@testing-library/react": "11.1.0",
     "@testing-library/react-hooks": "3.4.2",

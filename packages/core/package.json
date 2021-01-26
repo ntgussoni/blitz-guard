@@ -46,11 +46,10 @@
   },
   "homepage": "https://github.com/ntgussoni/blitz-guard#readme",
   "dependencies": {
-    "runtypes": "^5.0.1"
+    "runtypes": "^5.0.1",
+    "tslib": "2.1.0"
   },
   "devDependencies": {
-    "@testing-library/react": "10.0.3",
-    "@testing-library/react-hooks": "3.4.2",
     "@types/react-dom": "16.9.8",
     "babel-jest": "26.3.0",
     "jest-environment-jsdom-fourteen": "1.0.1",

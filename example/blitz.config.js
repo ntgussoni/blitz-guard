@@ -1,11 +1,11 @@
 // This import should be fixed??
-const { BlitzGuardMiddleware } = require("blitz-guard/dist/middleware.js")
-const { sessionMiddleware, unstable_simpleRolesIsAuthorized } = require("@blitzjs/server")
+const { BlitzGuardMiddleware } = require("@blitz-guard/core/dist/middleware.js")
+const { sessionMiddleware, simpleRolesIsAuthorized } = require("@blitzjs/server")
 
 module.exports = {
   middleware: [
     sessionMiddleware({
-      unstable_isAuthorized: unstable_simpleRolesIsAuthorized,
+      isAuthorized: simpleRolesIsAuthorized,
     }),
     BlitzGuardMiddleware({
       excluded: ["/api/auth/mutations/login"],

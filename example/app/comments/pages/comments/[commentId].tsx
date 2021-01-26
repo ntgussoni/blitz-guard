@@ -3,15 +3,14 @@ import Layout from "app/layouts/Layout"
 import { Link, useRouter, useQuery, useParam, BlitzPage, useMutation } from "blitz"
 import getComment from "app/comments/queries/getComment"
 import deleteComment from "app/comments/mutations/deleteComment"
-import { useGuard } from "app/guard"
+import getAbility from "app/guard/queries/getAbility"
 
 export const Comment = () => {
   const router = useRouter()
   const commentId = useParam("commentId", "number")
   const [comment] = useQuery(getComment, { where: { id: commentId } })
-  const [[canEditComment]] = useGuard([["read", "comment"]])
+  const [[canEditComment]] = useQuery(getAbility, [["update", "comment"]])
   const [deleteCommentMutation] = useMutation(deleteComment)
-
   return (
     <div>
       <h1>Comment {comment.id}</h1>

@@ -1,2 +1,2 @@
-import { getAbility } from "app/guard"
-export default getAbility
+import Ability from "../ability"
+export default Ability.getAbility
