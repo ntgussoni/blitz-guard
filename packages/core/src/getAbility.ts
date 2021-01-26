@@ -1,17 +1,10 @@
-import { AbilityType, ResourceType, IGuard } from "@blitz-guard/core"
-import { Ctx } from "blitz"
+import { IGuard, IGetAbility } from "./types"
 
-export type useCanCanInputType<T> = {
-  abilities: [AbilityType, ResourceType<T>, {}?][]
-}
-
-export const getAbilityInit = <T>(GuardInstance: IGuard<T>) =>
-  async function getAbility({ abilities }: useCanCanInputType<T>, ctx: Ctx) {
-    const retorno = await Promise.all(
-      abilities.map(
-        async ([ability, resource, args = {}]) =>
-          await GuardInstance.test(ctx, args, ability, resource),
-      ),
+export function getAbilityInit<T, R>(GuardInstance: IGuard<T, R>): IGetAbility<T, R> {
+  return async function getAbility(rules, ctx) {
+    const resultsPromise = rules.map(([ability, resource, args = {}]) =>
+      GuardInstance.can(ctx, args, ability, resource),
     )
-    return retorno
+    return await Promise.all(resultsPromise)
   }
+}

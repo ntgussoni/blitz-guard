@@ -1,36 +1,36 @@
 /* eslint-disable require-await */
-import { authorizeInit, GuardInit } from "@blitz-guard/core"
-import { AuthorizationError } from "blitz"
-import { IGuard } from "guard"
+import { GuardBuilder } from "@blitz-guard/core"
+import { AuthorizationError, Ctx } from "blitz"
+import { IGuardBuilder } from "../src/types"
 
-let Guard: IGuard<any>
-let Authorize: any
+let Guard: IGuardBuilder<any, any>
+
 describe("Authorize", () => {
-  beforeEach(() => {
-    Guard = GuardInit<any>(async (_, { can, cannot }) => {
+  beforeAll(() => {
+    Guard = GuardBuilder<any>(async (_, { can, cannot }) => {
       can("create", "comment")
       cannot("create", "article")
     })
-    Authorize = authorizeInit(Guard)
   })
 
   describe("can create comment", () => {
     it("executes callback", async () => {
-      expect.assertions(1)
+      expect.assertions(2)
       const callback = jest.fn(() => Promise.resolve("good!"))
-      await Authorize("create", "comment", callback)({}, {})
+      const res = await Guard.authorize("create", "comment", callback)({}, {})
       expect(callback).toBeCalledTimes(1)
+      expect(res).toBe("good!")
     })
 
     it("passes down ctx and data", async () => {
       const testArgs = { foo: "bar" }
       const testCtx = { session: { userId: 1 } }
       expect.assertions(3)
-      const callback = jest.fn((args, ctx) => {
+      const callback = jest.fn((args, ctx: Ctx) => {
         expect(args).toStrictEqual(testArgs)
         expect(ctx).toStrictEqual(testCtx)
       })
-      await Authorize("create", "comment", callback)(testArgs, testCtx)
+      await Guard.authorize("create", "comment", callback as any)(testArgs, testCtx)
       expect(callback).toBeCalledTimes(1)
     })
   })
@@ -40,7 +40,7 @@ describe("Authorize", () => {
       expect.assertions(3)
       const callback = jest.fn(() => Promise.resolve("good!"))
       try {
-        await Authorize("create", "article", callback)({}, {})
+        await Guard.authorize("create", "article", callback)({}, {})
       } catch (e) {
         expect(e).toBeInstanceOf(AuthorizationError)
         expect(e.message).toBe("GUARD: UNAUTHORIZED")

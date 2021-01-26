@@ -1,88 +1,45 @@
-import { Ctx } from "blitz"
-import { Literal, Static, Union } from "runtypes"
+import {
+  AbilityType,
+  CanType,
+  IAbilities,
+  IGuard,
+  IGuardBuilder,
+  ResourceType,
+  _CannotType,
+  _CanType,
+  RuleType,
+} from "./types"
+import { Manage, All } from "./const"
+import { authorizeInit } from "./authorize"
+import { getAbilityInit } from "./getAbility"
 
-const Manage = Literal("manage")
-const All = Literal("all")
-
-export const BasicAbilities = Union(
-  Literal("create"),
-  Literal("read"),
-  Literal("update"),
-  Literal("delete"),
-  Manage,
-)
-
-export type AbilityType = Static<typeof BasicAbilities> | (string & {})
-
-const isAbility = (ruleAbility: AbilityType, ability: AbilityType) =>
+const isAbility = <T>(ruleAbility: AbilityType<T>, ability: AbilityType<T>) =>
   ruleAbility === ability || ruleAbility === Manage.value
-
-// This should change with this https://github.com/prisma/prisma/issues/3545
-export type ResourceType<T> =
-  | keyof Omit<
-      T,
-      | "disconnect"
-      | "connect"
-      | "executeRaw"
-      | "queryRaw"
-      | "transaction"
-      | "on"
-      | "$disconnect"
-      | "$connect"
-      | "$executeRaw"
-      | "$queryRaw"
-      | "$transaction"
-      | "$on"
-      | "$use"
-    >
-  | Static<typeof All>
-  | (string & {}) // Workaround to get autocompletion working https://github.com/microsoft/TypeScript/issues/29729
 
 const isResource = <T>(ruleResource: ResourceType<T>, resource: ResourceType<T>) =>
   ruleResource === resource || ruleResource === All.value
+export class Guard<T, R> implements IGuard<T, R> {
+  private rules: RuleType<T, R>[]
+  ability: IGuard<T, R>["ability"]
 
-// eslint-disable-next-line no-use-before-define
-type IAbilities<T> = (ctx: Ctx, guardInstance: IGuard<T>) => Promise<void>
-
-export interface IGuard<T> {
-  ability: IAbilities<T>
-  rules: {
-    behavior: boolean
-    ability: AbilityType
-    resource: ResourceType<T>
-    guard?(args: any): Promise<boolean>
-  }[]
-  test(ctx: Ctx, args: any, ability: AbilityType, resource: ResourceType<T>): Promise<boolean>
-  can(
-    ability: AbilityType,
-    resource: ResourceType<T>,
-    guard?: (args: any) => Promise<boolean>,
-  ): void
-  cannot(
-    ability: AbilityType,
-    resource: ResourceType<T>,
-    guard?: (args: any) => Promise<boolean>,
-  ): void
-}
-
-const Guard = class Guard<T> implements IGuard<T> {
-  rules: IGuard<T>["rules"] = []
-  ability: IGuard<T>["ability"]
-
-  constructor(ability: IAbilities<T>) {
+  constructor(ability: IAbilities<T, R>) {
     if (!ability) throw new Error("GUARD: Ability file not present")
     this.ability = ability
+    this.rules = []
   }
 
-  test = async (ctx: Ctx, args: any, ability: AbilityType, resource: ResourceType<T>) => {
-    const sanitizedResource = String(resource).toLowerCase()
+  can: CanType<T, R> = async (ctx, args, ability, resource) => {
+    const sanitizedResource = String(resource).toLowerCase() as ResourceType<T>
 
     if (!ctx) throw new Error("GUARD: ctx cannot be empty")
     if (!ability) throw new Error("GUARD: ability cannot be empty")
     if (!resource) throw new Error("GUARD: resource cannot be empty")
 
     try {
-      await this.ability(ctx, this)
+      await this.ability(ctx, {
+        can: this._can,
+        cannot: this._cannot,
+      })
     } catch (e) {
       throw new Error(`GUARD: You should not throw errors in the ability file \n\r ${e}`)
     }
@@ -115,23 +72,25 @@ const Guard = class Guard<T> implements IGuard<T> {
     return can
   }
 
-  // making them an arrow function allows spread
-  can = (
-    ability: AbilityType,
-    resource: ResourceType<T>,
-    guard: (params: any) => Promise<boolean>,
-  ) => {
+  getRules = () => this.rules
+
+  _can: _CanType<T, R> = (ability, resource, guard) => {
     this.rules = [{ behavior: true, ability, resource, guard }, ...this.rules]
   }
 
-  cannot = (
-    ability: AbilityType,
-    resource: ResourceType<T>,
-    guard: (params: any) => Promise<boolean>,
-  ) => {
+  _cannot: _CannotType<T, R> = (ability, resource, guard) => {
     this.rules = [{ behavior: false, ability, resource, guard }, ...this.rules]
   }
 }
 
-// Singleton
-export const GuardInit = <T>(ability: IAbilities<T>) => new Guard(ability)
+export function GuardBuilder<T = any, R = any>(ability: IAbilities<T, R>): IGuardBuilder<T, R> {
+  const instance = new Guard<T, R>(ability)
+  const authorize = authorizeInit<T, R>(instance)
+  const getAbility = getAbilityInit<T, R>(instance)
+  return {
+    instance,
+    can: instance.can,
+    authorize,
+    getAbility,
+  }
+}

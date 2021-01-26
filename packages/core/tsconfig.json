@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["src", "test"],
+  "include": ["src", "types", "test"],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "baseUrl": "./",
@@ -8,6 +8,8 @@
     "downlevelIteration": true,
     "paths": {
       "*": ["src/*", "node_modules/*"]
-    }
+		},
+		"incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo"
   }
 }

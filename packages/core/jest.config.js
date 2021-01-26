@@ -5,7 +5,6 @@ module.exports = {
   coverageReporters: ["json", "lcov", "text", "clover"],
   // collectCoverage: !!`Boolean(process.env.CI)`,
   modulePathIgnorePatterns: ["<rootDir>/tmp", "<rootDir>/lib"],
-  testPathIgnorePatterns: ["src/commands/test.ts"],
   testTimeout: 30000,
   coverageDirectory: ".coverage",
   collectCoverageFrom: [

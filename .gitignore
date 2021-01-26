@@ -20,4 +20,6 @@ tsconfig.tsbuildinfo
 .blitz-*
 .blitz-cli-cache
 dist
-docs/build
+**/build
+docs/.docusaurus
+.history
