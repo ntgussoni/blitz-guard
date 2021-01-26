@@ -50,7 +50,7 @@
     "@types/react-dom": "16.9.8",
     "babel-jest": "26.3.0",
     "jest-environment-jsdom-fourteen": "1.0.1",
-    "react": "0.0.0-experimental-7f28234f8",
+    "react": "0.14.0",
     "react-dom": "0.0.0-experimental-7f28234f8",
     "react-test-renderer": "^16.9.0"
   },

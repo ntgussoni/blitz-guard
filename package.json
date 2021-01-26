@@ -75,7 +75,7 @@
     "lerna": "^3.22.1",
     "prettier": "2.1.1",
     "pretty-quick": "2.0.1",
-    "react": "0.0.0-experimental-7f28234f8",
+    "react": "0.14.0",
     "react-dom": "0.0.0-experimental-7f28234f8",
     "react-test-renderer": "^16.9.0",
     "release": "6.3.0",
