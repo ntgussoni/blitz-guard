@@ -7,7 +7,7 @@
 Blitz Guard is an authorization library which allows or restricts access to specific resources.
 It implements [Attribute-based access control](https://en.wikipedia.org/wiki/Attribute-based_access_control)
 
-It aims to reduce boilerplate and hard to understand authorization rules by having only a single source of truth in the [Ability file](ability-file)
+It aims to reduce boilerplate and hard to understand authorization rules by having only a single source of truth in the [Ability file](https://ntgussoni.github.io/blitz-guard/docs/ability-file)
 
 # Install
 
