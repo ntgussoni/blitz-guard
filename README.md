@@ -2,7 +2,7 @@
  <img src="blitz-guard.png" width="500px" />
 </p>
 
-> The centralized permission based authorization
+> The centralized permission based authorization for Blitz.js
 
 <p align="center">
 <img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/github/workflow/status/ntgussoni/blitz-guard/Continuous%20Integration/main?style=for-the-badge">
