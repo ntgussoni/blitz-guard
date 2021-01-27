@@ -15,7 +15,7 @@
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
-  "types": "dist/packages/core/src/index.d.ts",
+  "types": "dist/index.d.ts",
   "middleware": "dist/middleware.js",
   "files": [
     "dist"
