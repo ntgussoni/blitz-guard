@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "scripts": {
     "start": "blitz start",
     "studio": "blitz prisma studio",
