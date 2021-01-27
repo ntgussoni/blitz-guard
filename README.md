@@ -2,9 +2,12 @@
  <img src="blitz-guard.png" width="500px" />
 </p>
 
-> Easy authorization for Blitz.js
+> The centralized permission based authorization
 
-> :warning: **This is a beta release and it might change soon**
+Blitz Guard is an authorization library which allows or restricts access to specific resources.
+It implements [Attribute-based access control](https://en.wikipedia.org/wiki/Attribute-based_access_control)
+
+It aims to reduce boilerplate and hard to understand authorization rules by having only a single source of truth in the [Ability file](ability-file)
 
 # Install
 
@@ -14,7 +17,7 @@ Using the recipe is the easiest way. It will add the packages and create the bas
 
 ## Get started
 
-[See the docs](https://ntgussoni.github.io/blitz-guard)
+[See the docs](https://ntgussoni.github.io/blitz-guard/docs/)
 
 ## Contributors
 

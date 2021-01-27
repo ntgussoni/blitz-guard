@@ -1,7 +1,7 @@
 ---
 id: middleware
-title: Middleware
-sidebar_label: Middleware
+title: Developer middleware
+sidebar_label: Developer middleware
 slug: /middleware
 ---
 
