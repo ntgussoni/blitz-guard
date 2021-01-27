@@ -4,6 +4,9 @@
 
 > The centralized permission based authorization
 
+<p align="center">
+![](https://img.shields.io/github/workflow/status/ntgussoni/blitz-guard/Continuous%20Integration/main?style=for-the-badge)
+</p>
 Blitz Guard is an authorization library which allows or restricts access to specific resources.
 It implements [Attribute-based access control](https://en.wikipedia.org/wiki/Attribute-based_access_control)
 
