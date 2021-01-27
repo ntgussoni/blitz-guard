@@ -1,6 +1,5 @@
 /* eslint-disable require-await */
-import { GuardBuilder } from "@blitz-guard/core"
-import { IGuardBuilder } from "../src/types"
+import { GuardBuilder, IGuardBuilder } from "@blitz-guard/core"
 let Guard: IGuardBuilder<any, any>
 
 describe("Guard.can", () => {
@@ -9,17 +8,17 @@ describe("Guard.can", () => {
   })
 
   it("throws error on empty ctx", () => {
-    Guard.can({}, undefined, "create", "comment").catch((e) => {
+    Guard.can("create", "comment", {}, undefined).catch((e) => {
       expect(e.message).toBe("GUARD: ctx cannot be empty")
     })
   })
   it("throws error on empty ability", () => {
-    Guard.can({}, undefined, undefined, "comment").catch((e) => {
+    Guard.can(undefined, "comment", {}, undefined).catch((e) => {
       expect(e.message).toBe("GUARD: ability cannot be empty")
     })
   })
   it("throws error on empty resource", () => {
-    Guard.can({}, undefined, "foo", undefined).catch((e) => {
+    Guard.can("foo", undefined, {}, undefined).catch((e) => {
       expect(e.message).toBe("GUARD: resource cannot be empty")
     })
   })
@@ -27,7 +26,7 @@ describe("Guard.can", () => {
   it("returns true if no rules", async () => {
     expect.assertions(2)
     expect(Guard.instance.getRules().length).toBe(0)
-    const result = await Guard.can({}, null, "create", "comment")
+    const result = await Guard.can("create", "comment", {}, null)
     expect(result).toBe(true)
   })
   it("last rule of the same ability-resource is applied", async () => {
@@ -35,18 +34,18 @@ describe("Guard.can", () => {
     Guard.instance._cannot("create", "comment")
     Guard.instance._can("create", "comment")
 
-    const result = await Guard.can({}, null, "create", "comment")
+    const result = await Guard.can("create", "comment", {}, null)
     expect(result).toBe(true)
 
     Guard.instance._cannot("create", "comment")
-    const result2 = await Guard.can({}, null, "create", "comment")
+    const result2 = await Guard.can("create", "comment", {}, null)
     expect(result2).toBe(false)
   })
 
   describe("resource == 'all'", () => {
     it("applies to any resource", async () => {
       Guard.instance._cannot("create", "all")
-      const result = await Guard.can({}, null, "create", "foo")
+      const result = await Guard.can("create", "foo", {}, null)
       expect(result).toBe(false)
     })
   })
@@ -54,7 +53,7 @@ describe("Guard.can", () => {
   describe("ability == 'manage'", () => {
     it("applies to any ability", async () => {
       Guard.instance._cannot("manage", "comment")
-      const result = await Guard.can({}, null, "bar", "comment")
+      const result = await Guard.can("bar", "comment", {}, null)
       expect(result).toBe(false)
     })
   })
@@ -69,7 +68,7 @@ describe("Guard.can", () => {
         expect(args.foo).toStrictEqual("bar")
         return true
       })
-      return Guard.can({}, testArgs, "bar", "comment")
+      return Guard.can("bar", "comment", {}, testArgs)
     })
 
     describe("guard returning true", () => {
@@ -77,7 +76,7 @@ describe("Guard.can", () => {
         Guard.instance._cannot("manage", "comment", async () => Promise.resolve(true))
       })
       it("rule is applied", async () => {
-        const result = await Guard.can({}, null, "bar", "comment")
+        const result = await Guard.can("bar", "comment", {}, null)
         expect(result).toBe(false)
       })
     })
@@ -87,7 +86,7 @@ describe("Guard.can", () => {
         Guard.instance._cannot("manage", "comment", async () => Promise.resolve(false))
       })
       it("rule is not applied", async () => {
-        const result = await Guard.can({}, null, "bar", "comment")
+        const result = await Guard.can("bar", "comment", {}, null)
         expect(result).toBe(true)
       })
     })
@@ -106,7 +105,7 @@ describe("Guard.can", () => {
       Guard.instance._cannot("create", "article", testGuard1)
       Guard.instance._cannot("create", "comment", testGuard2)
 
-      await Guard.can({}, null, "create", "comment")
+      await Guard.can("create", "comment", {}, null)
 
       expect(testGuard1).toBeCalledTimes(0)
       expect(testGuard2).toBeCalledTimes(1)
@@ -117,7 +116,7 @@ describe("Guard.can", () => {
       Guard.instance._cannot("create", "comment", testGuard1)
       Guard.instance._can("create", "comment", testGuard2)
 
-      await Guard.can({}, null, "create", "comment")
+      await Guard.can("create", "comment", {}, null)
 
       expect(testGuard1).toBeCalledTimes(0)
       expect(testGuard2).toBeCalledTimes(1)
@@ -130,7 +129,7 @@ describe("Guard.can", () => {
       Guard.instance._cannot("create", "comment", testGuard1)
       Guard.instance._can("create", "comment", testGuard2)
 
-      await Guard.can({}, null, "create", "comment")
+      await Guard.can("create", "comment", {}, null)
 
       expect(testGuard1).toBeCalledTimes(1)
       expect(testGuard2).toBeCalledTimes(1)

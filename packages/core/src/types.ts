@@ -38,10 +38,10 @@ export type _CannotType<T, R> = (
 ) => void
 
 export type CanType<T, R> = (
-  ctx: Ctx,
-  args: any,
   ability: AbilityType<R>,
   resource: ResourceType<T>,
+  ctx: Ctx,
+  args: any,
 ) => Promise<boolean>
 
 export type AbilitiesParamsType<T, R> = { can: _CanType<T, R>; cannot: _CannotType<T, R> }
@@ -56,7 +56,7 @@ export type RuleType<T, R> = {
 export interface IGuard<T, R> {
   ability: IAbilities<T, R>
   getRules(): RuleType<T, R>[]
-  can(ctx: Ctx, args: any, ability: AbilityType<R>, resource: ResourceType<T>): Promise<boolean>
+  can(ability: AbilityType<R>, resource: ResourceType<T>, ctx: Ctx, args: any): Promise<boolean>
 }
 
 export interface IAuthorize<T, A> {

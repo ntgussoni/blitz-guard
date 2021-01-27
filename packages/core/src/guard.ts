@@ -28,7 +28,7 @@ export class Guard<T, R> implements IGuard<T, R> {
     this.rules = []
   }
 
-  can: CanType<T, R> = async (ctx, args, ability, resource) => {
+  can: CanType<T, R> = async (ability, resource, ctx, args) => {
     const sanitizedResource = String(resource).toLowerCase() as ResourceType<T>
 
     if (!ctx) throw new Error("GUARD: ctx cannot be empty")

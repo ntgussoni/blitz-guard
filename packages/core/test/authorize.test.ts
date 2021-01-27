@@ -1,7 +1,6 @@
 /* eslint-disable require-await */
-import { GuardBuilder } from "@blitz-guard/core"
+import { GuardBuilder, IGuardBuilder } from "@blitz-guard/core"
 import { AuthorizationError, Ctx } from "blitz"
-import { IGuardBuilder } from "../src/types"
 
 let Guard: IGuardBuilder<any, any>
 
