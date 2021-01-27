@@ -7,10 +7,15 @@ slug: /middleware
 
 In order to aid your development, you can add a middleware to your `blitz.config.js` that will throw a warning in the console whenever you access an endpoint that is not protected by blitz guard.
 
+<div>
+<img style={{"max-width":  '60%'}} src="/blitz-guard/img/middleware.png"/>
+</div>
+<br/>
+
 **NOTE**: Only enabled in development
 
 ```typescript
-const { BlitzGuardMiddleware } = require("blitz-guard/dist/middleware.js")
+const { BlitzGuardMiddleware } = require("@blitz-guard/core/dist/middleware")
 
 module.exports = {
   middleware: [

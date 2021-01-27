@@ -1,7 +1,7 @@
 ---
 id: secure-your-endpoints
-title: Secure your endpoints
-sidebar_label: Secure your endpoints
+title: How to secure your endpoints
+sidebar_label: How to secure your endpoints
 slug: /secure-your-endpoints
 ---
 
@@ -48,7 +48,7 @@ You can use `Guard.can` for this purpose.
 ...
 async function updateProject({ where, data }: UpdateProjectInput, ctx: Ctx) {
 
-	if ((Guard.can(ctx, { where, data }), "send", "project_email")) {
+	if ((Guard.can( "send", "project_email", ctx, { where, data }))) {
 		await sendEmail()
 	}
 
@@ -56,3 +56,5 @@ async function updateProject({ where, data }: UpdateProjectInput, ctx: Ctx) {
 }
 ...
 ```
+
+`Guard.can(ability, resource, ctx, args)`

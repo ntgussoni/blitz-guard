@@ -1,15 +1,18 @@
 module.exports = {
   someSidebar: {
-    Topics: [
+    Guide: [
       "index",
       "installation",
-      "ability-file",
-      "abilities",
-      "resources",
+      {
+        type: "category",
+        label: "Define Rules",
+        items: ["ability-file", "abilities", "resources"],
+      },
+
       "secure-your-endpoints",
       "hook",
       "middleware",
     ],
-    Features: [],
+    Advanced: ["testing"],
   },
 }

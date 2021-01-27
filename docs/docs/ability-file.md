@@ -39,11 +39,64 @@ const Guard = GuardBuilder<ExtendedResourceTypes, ExtendedAbilityTypes>(
 export default Guard
 ```
 
+## Rules
+
+The ability file is read top to bottom, the bottom rules take more precedence that the ones at the top.
+
+Take the following example:
+
+```typescript
+...
+
+const Guard = GuardBuilder(
+	can("create", "article")
+	cannot("create", "article")
+)
+
+Guard.can("create", "article",{},{}) // false
+
+```
+
+### Best practices
+
+> Remove all permissions, give them one by one.
+
+Your logic will be more direct and easier to follow, this reduces confusion and potential bugs.
+
+```typescript
+cannot("manage", "all") // This removes all abilities for all resources
+can("create", "article")
+
+if (some_condition()) {
+  can("delete", "article")
+}
+```
+
+<br/>
+> if guards look similar, take some code out of them
+
+Guard will execute the guard condition if the rule matches the ability and resource.
+This means that you should, whenever possible, take as much logic out of the rule's guard.
+
+```typescript
+// Wrong ❌
+can("delete", "article", (ctx) => someHeavyMethod() === true)
+can("update", "article", (ctx) => someHeavyMethod() === true)
+```
+
+```typescript
+// Right ✅
+if (someHeavyMethod() === true) {
+  can("delete", "article")
+  can("update", "article")
+}
+```
+
 ## Can & Cannot
 
 These two methods will determine what a user can or cannot do in your application.
 
-```
+```typescript
 can(ability, resource, guard)
 cannot(ability, resource, guard)
 ```
@@ -59,5 +112,5 @@ cannot(ability, resource, guard)
   [More information](resources)
 
 - **guard** (_optional_):<br/>
-  It's the condition for the rule to apply, *args* are passed down from a wrapped mutation or query or manually when calling [Guard.can](https://ntgussoni.github.io/blitz-guard/docs/secure-your-endpoints#check-rules-inside-a-querymutation)<br/>
+  It's the condition for the rule to apply, _args_ are passed down from a wrapped mutation or query or manually when calling [Guard.can](https://ntgussoni.github.io/blitz-guard/docs/secure-your-endpoints#check-rules-inside-a-querymutation)<br/>
   `async (args) => boolean`
