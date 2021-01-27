@@ -1,12 +1,13 @@
 module.exports = {
   someSidebar: {
-    Docusaurus: [
+    Topics: [
       "index",
+      "installation",
       "ability-file",
       "abilities",
       "resources",
       "secure-your-endpoints",
-      "use-guard-hook",
+      "hook",
       "middleware",
     ],
     Features: [],

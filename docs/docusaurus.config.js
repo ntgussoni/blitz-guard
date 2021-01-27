@@ -10,8 +10,9 @@ module.exports = {
   themeConfig: {
     navbar: {
       logo: {
-        alt: "My Site Logo",
+        alt: "Blitz Guard",
         src: "img/blitz-guard.png",
+        href: "/docs",
       },
       items: [
         {
