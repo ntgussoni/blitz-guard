@@ -59,5 +59,5 @@ cannot(ability, resource, guard)
   [More information](resources)
 
 - **guard** (_optional_):<br/>
-  It's the condition for the rule to apply<br/>
+  It's the condition for the rule to apply, *args* are passed down from a wrapped mutation or query or manually when calling [Guard.can](https://ntgussoni.github.io/blitz-guard/docs/secure-your-endpoints#check-rules-inside-a-querymutation)<br/>
   `async (args) => boolean`
