@@ -53,6 +53,7 @@ try {
     },
     ctx,
   )
+  fail("This call should throw an exception")
 } catch (e) {
   let error = e as AuthorizationError
   expect(error.statusCode).toEqual(403)
