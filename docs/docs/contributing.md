@@ -7,6 +7,20 @@ slug: /contributing
 
 :rocket: We are happy you are here! Blitz Guard is built by all of us, if you want to contribute and this guide is not enough don't hesitate to [start a discussion](https://github.com/ntgussoni/blitz-guard/discussions/new)
 
+## Our goal
+
+Blitz Guard is an **authorization library**, which is focused on providing an easy way to secure your application. Therefore we have to make sure we don't break the core logic when making changes.
+
+**So please:**
+
+**1.** Make tests for any new functionality
+
+**2.** Add any documentation that might help the developer
+
+**3.** If you think something needs refactoring and you'd like to do it go ahead, there's always room for improvement!
+
+For anything that might involve breaking changes you can [start a discussion](https://github.com/ntgussoni/blitz-guard/discussions/new)
+
 ## Development
 
 **1.** Fork the blitz-guard repo
@@ -35,6 +49,13 @@ yarn dev
 ```bash
 yarn test
 ```
+
+**6.** When you are happy, push your branch and make a Pull Request to the main repo.
+
+**What to expect after that:** Tests will be run on the PR and it will be checked by one of the maintainers.
+If everything is okay it will be merged or some changes will be requested.
+
+> Don't take it personally if that happens, our goal is to keep a healthy and easy to understand codebase.
 
 ### Sync your fork
 
