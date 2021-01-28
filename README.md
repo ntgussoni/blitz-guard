@@ -19,9 +19,13 @@ Using the recipe is the easiest way. It will add the packages and create the bas
 
 `blitz install ntgussoni/blitz-guard-recipe`
 
-## Get started
+# Get started
 
 [See the docs](https://ntgussoni.github.io/blitz-guard/docs/)
+
+# How to contribute
+
+[See how to contribute here ](http://localhost:3000/blitz-guard/docs/contributing)
 
 ## Contributors
 

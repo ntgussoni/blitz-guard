@@ -14,5 +14,6 @@ module.exports = {
       "middleware",
     ],
     Advanced: ["testing"],
+    Community: ["contributing"],
   },
 }
