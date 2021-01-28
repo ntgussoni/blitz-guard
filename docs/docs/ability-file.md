@@ -72,12 +72,12 @@ if (some_condition()) {
 }
 ```
 
-::warn
+:::caution
 Blitz Guard will allow everything unless you state otherwise. No rules means that everything is allowed.
-::
-
+:::
 
 <br/>
+
 > if guards look similar, take some code out of them
 
 Guard will execute the guard condition if the rule matches the ability and resource.
