@@ -25,7 +25,7 @@ Using the recipe is the easiest way. It will add the packages and create the bas
 
 # How to contribute
 
-[See how to contribute here ](http://localhost:3000/blitz-guard/docs/contributing)
+[See how to contribute here ](https://ntgussoni.github.io/blitz-guard/docs/contributing)
 
 ## Contributors
 
