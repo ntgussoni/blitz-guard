@@ -72,6 +72,11 @@ if (some_condition()) {
 }
 ```
 
+::warn
+Blitz Guard will allow everything unless you state otherwise. No rules means that everything is allowed.
+::
+
+
 <br/>
 > if guards look similar, take some code out of them
 
