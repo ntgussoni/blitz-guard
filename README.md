@@ -6,6 +6,8 @@
 
 <p align="center">
 <img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/github/workflow/status/ntgussoni/blitz-guard/Continuous%20Integration/main?style=for-the-badge">
+<img alt="npm" src="https://img.shields.io/npm/v/@blitz-guard/core?style=for-the-badge">
+ <img alt="npm" src="https://img.shields.io/npm/dm/@blitz-guard/core?style=for-the-badge">
 </p>
 
 Blitz Guard is an authorization library which allows or restricts access to specific resources.
