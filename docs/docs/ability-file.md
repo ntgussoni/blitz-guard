@@ -18,8 +18,7 @@ type ExtendedAbilityTypes = "send email"
 
 const Guard = GuardBuilder<ExtendedResourceTypes, ExtendedAbilityTypes>(
   async (ctx, { can, cannot }) => {
-    cannot("manage", "comment")
-    cannot("manage", "article")
+    cannot("manage", "all") // See "Best practices" section
 
     can("read", "article")
     can("read", "comment")
@@ -49,6 +48,8 @@ Take the following example:
 ...
 
 const Guard = GuardBuilder(
+	cannot('manage', 'all')
+
 	can("create", "article")
 	cannot("create", "article")
 )
@@ -65,6 +66,7 @@ Your logic will be more direct and easier to follow, this reduces confusion and 
 
 ```typescript
 cannot("manage", "all") // This removes all abilities for all resources
+
 can("create", "article")
 
 if (some_condition()) {
