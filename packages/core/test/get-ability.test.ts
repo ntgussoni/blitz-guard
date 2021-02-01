@@ -1,34 +1,35 @@
 /* eslint-disable require-await */
 import { GuardBuilder, IGuardBuilder } from "@blitz-guard/core"
 
-let Guard: IGuardBuilder<any, any>
+let Guard: IGuardBuilder<"comment" | "article" | "user" | "category", undefined>
 
 describe("getAbility", () => {
   beforeEach(() => {
-    Guard = GuardBuilder<any>(async (ctx: any, { can, cannot }) => {
+    Guard = GuardBuilder(async (ctx: any, { can, cannot }) => {
+      cannot("manage", "all")
       can("create", "comment")
-      cannot("create", "article")
-      cannot("create", "user", async ({ id }) => id === "foo" && ctx.user === "bar")
-      cannot("create", "category", async () => ctx.user === "bar")
+      can("create", "article")
+      can("create", "user", async ({ id }) => id === "foo" && ctx.user === "bar")
+      can("create", "category", async () => ctx.user === "bar")
     })
   })
 
   describe("without guard", () => {
     it("returns the right values", async () => {
-      expect(
-        await Guard.getAbility(
-          [
-            ["create", "comment"],
-            ["create", "article"],
-          ],
-          { user: "bar" },
-        ),
-      ).toStrictEqual([true, false])
+      const res = await Guard.getAbility(
+        [
+          ["create", "comment"],
+          ["create", "article"],
+        ],
+        { user: "bar" },
+      )
+
+      expect(res).toStrictEqual([true, true])
     })
   })
 
   describe("with guard", () => {
-    it("returns the right values even if not requierd", async () => {
+    it("returns the right values even if not required", async () => {
       expect(
         await Guard.getAbility(
           [
@@ -39,7 +40,7 @@ describe("getAbility", () => {
             user: "bar",
           },
         ),
-      ).toStrictEqual([true, false])
+      ).toStrictEqual([true, true])
     })
 
     it("returns the right values", async () => {
@@ -49,13 +50,12 @@ describe("getAbility", () => {
             ["create", "user", { id: "foo" }],
             ["create", "user", { id: "bar" }],
             ["create", "category"],
-            ["create", "inexistent"],
           ],
           {
             user: "bar",
           },
         ),
-      ).toStrictEqual([false, true, false, true])
+      ).toStrictEqual([true, false, true])
     })
   })
 })

@@ -29,13 +29,12 @@ export class Guard<T, R> implements IGuard<T, R> {
   }
 
   can: CanType<T, R> = async (ability, resource, ctx, args) => {
-    const sanitizedResource = String(resource).toLowerCase() as ResourceType<T>
-
     if (!ctx) throw new Error("GUARD: ctx cannot be empty")
     if (!ability) throw new Error("GUARD: ability cannot be empty")
     if (!resource) throw new Error("GUARD: resource cannot be empty")
 
     try {
+      this.rules = []
       await this.ability(ctx, {
         can: this._can,
         cannot: this._cannot,
@@ -55,7 +54,7 @@ export class Guard<T, R> implements IGuard<T, R> {
         break
       }
 
-      if (isResource(rule.resource, sanitizedResource) && isAbility(rule.ability, ability)) {
+      if (isResource(rule.resource, resource) && isAbility(rule.ability, ability)) {
         if (rule.guard) {
           if (await rule.guard(args)) {
             can = rule.behavior
@@ -72,7 +71,7 @@ export class Guard<T, R> implements IGuard<T, R> {
     return can
   }
 
-  getRules = () => this.rules
+  getPreviouslyRanRules = () => this.rules
 
   _can: _CanType<T, R> = (ability, resource, guard) => {
     this.rules = [{ behavior: true, ability, resource, guard }, ...this.rules]
