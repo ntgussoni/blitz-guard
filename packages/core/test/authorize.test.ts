@@ -2,13 +2,25 @@
 import { GuardBuilder, IGuardBuilder } from "@blitz-guard/core"
 import { AuthorizationError, Ctx } from "blitz"
 
-let Guard: IGuardBuilder<any, any>
+let Guard: IGuardBuilder<"comment" | "camelCaseResource" | "article">
 
 describe("Authorize", () => {
   beforeAll(() => {
-    Guard = GuardBuilder<any>(async (_, { can, cannot }) => {
+    Guard = GuardBuilder(async (_, { can, cannot }) => {
+      cannot("manage", "all")
       can("create", "comment")
+      can("create", "camelCaseResource")
       cannot("create", "article")
+    })
+  })
+
+  describe("can create camelCaseResource", () => {
+    it("executes callback", async () => {
+      expect.assertions(2)
+      const callback = jest.fn(() => Promise.resolve("good!"))
+      const res = await Guard.authorize("create", "camelCaseResource", callback)({}, {})
+      expect(callback).toBeCalledTimes(1)
+      expect(res).toBe("good!")
     })
   })
 
