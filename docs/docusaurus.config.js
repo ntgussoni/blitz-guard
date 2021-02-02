@@ -8,6 +8,18 @@ module.exports = {
   organizationName: "ntgussoni", // Usually your GitHub org/user name.
   projectName: "blitz-guard", // Usually your repo name.
   themeConfig: {
+    algolia: {
+      apiKey: "bf59e828c18d74edc0d699c08696b3d6",
+      indexName: "blitz-guard",
+
+      // Optional: see doc section bellow
+      contextualSearch: false,
+
+      // Optional: Algolia search parameters
+      searchParameters: {},
+
+      //... other Algolia params
+    },
     navbar: {
       logo: {
         alt: "Blitz Guard",
