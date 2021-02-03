@@ -13,15 +13,15 @@
     "test": "yarn run lint && yarn run build && lerna run test --stream",
     "test:packages": "yarn run build && yarn testonly:packages",
     "test:example": "yarn run build && yarn testonly:example",
-		"testonly": "yarn test:packages && yarn test:example",
-		"example:dev": "cd example && yarn start",
+    "testonly": "yarn test:packages && yarn test:example",
+    "example:dev": "cd example && yarn start",
     "testonly:packages": "lerna run test --stream --scope @blitz-guard/*",
     "testonly:example": "lerna run test --stream --scope example --concurrency 1",
     "publish-prep": "lerna run clean && yarn && yarn build && cp README.md packages/core/README.md ",
     "publish-canary": "yarn run publish-prep && lerna publish --force-publish --preid canary --pre-dist-tag canary && rimraf packages/core/README.md",
     "publish-latest": "yarn run publish-prep && lerna publish --force-publish && yarn run docs-publish && rimraf packages/core/README.md",
-		"docs-publish": "cd docs && yarn deploy",
-		"docs:dev": "cd docs && yarn start",
+    "docs-publish": "cd docs && yarn deploy",
+    "docs:dev": "cd docs && yarn start",
     "github:release": "yarn release"
   },
   "repository": {
@@ -48,7 +48,7 @@
     ]
   },
   "devDependencies": {
-    "@prisma/client": "^2.6.2",
+    "@prisma/client": "^2.16.0",
     "@testing-library/jest-dom": "5.5.0",
     "@testing-library/react": "10.0.3",
     "@testing-library/react-hooks": "3.4.2",
