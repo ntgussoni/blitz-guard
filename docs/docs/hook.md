@@ -17,6 +17,6 @@ const [[canCreateComment, canDeleteComment], { isLoading }] = useQuery(Guard.get
   ["delete", "comment" /* args */],
 ])
 
-console.log(canDeleteComment) // true
+console.log(canCreateComment) // true
 console.log(canDeleteComment) // false
 ```
