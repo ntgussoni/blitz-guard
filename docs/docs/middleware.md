@@ -31,7 +31,7 @@ If you don't want to be warned about certain api routes, you can pass an array o
 ```typescript
 ...
 BlitzGuardMiddleware({
-	excluded: ["/api/auth/mutations/login", "/api/auth/mutations/logout"],
+	excluded: ["/api/auth/mutations/login", "/api/auth/mutations/logout", "/api/guard/queries/getAbility"],
 }),
 ...
 ```
