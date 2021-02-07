@@ -1,23 +1,35 @@
 import db from "db"
 import { GuardBuilder, PrismaModelsType } from "@blitz-guard/core"
 
-type ExtendedResourceTypes = PrismaModelsType<typeof db> | "dog"
-type ExtendedAbilityTypes = "pet" | "feed" | "touch"
+type ExtendedResourceTypes = "comment" | "article" | PrismaModelsType<typeof db>
+
+type ExtendedAbilityTypes = "send email"
 
 const Guard = GuardBuilder<ExtendedResourceTypes, ExtendedAbilityTypes>(
   async (ctx, { can, cannot }) => {
+    cannot("manage", "all")
     /*
 		Your rules go here, you can start by removing access to everything
-		and gradually add permissions
+		and gradually adding the necessary permissions
 
 		eg:
-		cannot("manage", "dog")
+		cannot("manage", "comment")
+		cannot("manage", "article")
 
-		can("pet", "dog", async (args) => { ... })
-		can("walk", "dog", async (args) => { ... })
-		can("feed", "dog", async (args) => (ctx.session.userId == 1) )
+		can("read", "article")
+		can("read", "comment")
+
+		if (ctx.session.isAuthorized()) {
+			can("create", "article")
+			can("create", "comment")
+			can("send email", "comment")
+
+			can("delete", "comment", async (_args) => {
+				return (await db.comment.count({ where: { userId: ctx.session.userId } })) === 1
+			})
+		}
     */
-    cannot("update", "project")
+    can("update", "project")
   }
 )
 
