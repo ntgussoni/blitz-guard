@@ -10,11 +10,11 @@ Just use the predefined `Guard.getAbility` query with a regular useQuery hook.
 
 ```typescript
 import { useQuery } from "blitz"
-import Guard from "app/guard/ability"
+import getAbility from "app/guard/queries/getAbility"
 
-const [[canCreateComment, canDeleteComment], { isLoading }] = useQuery(Guard.getAbility, [
+const [[canCreateComment, canDeleteComment], { isLoading }] = useQuery(getAbility, [
   ["create", "comment"],
-  ["delete", "comment" /* args */],
+  ["delete", "comment", /* args */],
 ])
 
 console.log(canCreateComment) // true
