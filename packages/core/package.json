@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/ntgussoni/blitz-guard#readme",
   "dependencies": {
-    "runtypes": "^5.0.1",
+    "runtypes": "^5.0.2",
     "tslib": "2.1.0"
   },
   "devDependencies": {
