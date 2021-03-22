@@ -1020,7 +1020,7 @@
 "@blitz-guard/core@link:packages/core":
   version "0.3.1"
   dependencies:
-    runtypes "5.0.2"
+    runtypes "5.1.0"
     tslib "2.1.0"
 
 "@blitzjs/cli@0.29.5":
@@ -15200,10 +15200,10 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
-runtypes@5.0.2, runtypes@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/runtypes/-/runtypes-5.0.2.tgz#8c73395945b949e9825fc0552eb6125ffa8e5f6f"
-  integrity sha512-nTxOwXAGBFmhDydzYaeHBcuMDf1bvn4PsisMmC+Lh03PppSBKkbPQ/MWiT2pp2UEyApBvfSvUhnwC5aWG5w0ng==
+runtypes@5.1.0, runtypes@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/runtypes/-/runtypes-5.1.0.tgz#a1f2501b5ca8fda47d51ea15b6ccca45e924a8c3"
+  integrity sha512-OMHkz6dxysXj4E8Fj/HCGjtdJUhapQUN7puvqzuzvjaX28pd52PZmEMqQlkIzCfKdhXdM0ghx8PpvELprEnOLQ==
 
 rxjs@^5.5.2:
   version "5.5.12"
