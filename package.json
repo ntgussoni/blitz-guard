@@ -59,7 +59,7 @@
     "babel-jest": "26.3.0",
     "blitz": "^0.29.7",
     "eslint": "7.7.0",
-    "eslint-config-react-app": "5.2.1",
+    "eslint-config-react-app": "6.0.0",
     "eslint-plugin-es": "mysticatea/eslint-plugin-es",
     "eslint-plugin-es5": "1.5.0",
     "eslint-plugin-flowtype": "5.2.0",
