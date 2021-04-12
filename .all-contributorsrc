@@ -41,6 +41,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "Zxilly",
+      "name": "Zxilly",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31370133?v=4",
+      "profile": "https://learningman.top",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 8,
