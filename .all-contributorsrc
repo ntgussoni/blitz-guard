@@ -42,13 +42,22 @@
         "doc"
       ]
     },
-    {
+     {
       "login": "Zxilly",
       "name": "Zxilly",
       "avatar_url": "https://avatars.githubusercontent.com/u/31370133?v=4",
       "profile": "https://learningman.top",
       "contributions": [
         "bug"
+      ]
+    },
+    {
+      "login": "Kosai106",
+      "name": "Kevin Østerkilde",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6379824?v=4",
+      "profile": "https://oesterkilde.dk/",
+      "contributions": [
+        "doc"
       ]
     }
   ],
