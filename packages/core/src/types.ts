@@ -79,6 +79,13 @@ export interface IAuthorize<IResource, IAbility> {
   ): (args: U, ctx: Ctx) => Promise<TResult>
 }
 
+export interface IAuthorizePipe<IResource, IAbility> {
+  <U, C = Ctx>(ability: AbilityType<IAbility>, resource: ResourceType<IResource>): (
+    input: U,
+    ctx: C,
+  ) => Promise<U>
+}
+
 export type useGuardInputType<IResource, IAbility> = [
   AbilityType<IAbility>,
   ResourceType<IResource>,
@@ -93,5 +100,6 @@ export interface IGuardBuilder<IResource = any, IAbility = any> {
   instance: Guard<IResource, IAbility>
   can: Guard<IResource, IAbility>["can"]
   authorize: IAuthorize<IResource, IAbility>
+  authorizePipe: IAuthorizePipe<IResource, IAbility>
   getAbility: IGetAbility<IResource, IAbility>
 }

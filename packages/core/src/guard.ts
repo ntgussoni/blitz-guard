@@ -84,11 +84,12 @@ export class Guard<T, R> implements IGuard<T, R> {
 
 export function GuardBuilder<T = any, R = any>(ability: IAbilities<T, R>): IGuardBuilder<T, R> {
   const instance = new Guard<T, R>(ability)
-  const authorize = authorizeInit<T, R>(instance)
+  const { authorize, authorizePipe } = authorizeInit<T, R>(instance)
   const getAbility = getAbilityInit<T, R>(instance)
   return {
     instance,
     can: instance.can,
+    authorizePipe,
     authorize,
     getAbility,
   }
