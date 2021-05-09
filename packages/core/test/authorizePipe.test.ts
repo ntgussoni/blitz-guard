@@ -2,7 +2,8 @@
 import { GuardBuilder, IGuardBuilder } from "@blitz-guard/core"
 import { AuthorizationError, Ctx, resolver } from "blitz"
 
-let Guard: IGuardBuilder<"comment" | "camelCaseResource" | "article">
+let Guard: IGuardBuilder<"comment" | "camelCaseResource" | "article" | "reason1" | "reason2">
+const reason = "I must have a good reason!"
 
 describe("authorizePipe", () => {
   beforeAll(() => {
@@ -11,6 +12,8 @@ describe("authorizePipe", () => {
       can("create", "comment")
       can("create", "camelCaseResource")
       cannot("create", "article")
+      cannot("create", "reason1")
+      cannot("create", "reason2").reason(reason)
     })
   })
 
@@ -19,7 +22,7 @@ describe("authorizePipe", () => {
       expect.assertions(1)
       const resolver1 = resolver.pipe(
         Guard.authorizePipe("create", "camelCaseResource"),
-        (input) => {
+        (input: any) => {
           return input.somedata
         },
       )
@@ -34,7 +37,7 @@ describe("authorizePipe", () => {
   describe("can create comment", () => {
     it("executes passes down the data", async () => {
       expect.assertions(1)
-      const resolver1 = resolver.pipe(Guard.authorizePipe("create", "comment"), (input) => {
+      const resolver1 = resolver.pipe(Guard.authorizePipe("create", "comment"), (input: any) => {
         return input.somedata
       })
       const res = await resolver1(
@@ -56,6 +59,36 @@ describe("authorizePipe", () => {
       } catch (e) {
         expect(e).toBeInstanceOf(AuthorizationError)
         expect(e.message).toBe("GUARD: UNAUTHORIZED")
+      }
+      expect(testFn).toBeCalledTimes(0)
+    })
+  })
+
+  describe("reason", () => {
+    it("shows default rason", async () => {
+      expect.assertions(3)
+      const testFn = jest.fn(() => Promise.resolve("good!"))
+
+      const resolver1 = resolver.pipe(Guard.authorizePipe("create", "reason1"), testFn)
+      try {
+        await resolver1({ somedata: "blah" }, { session: { $authorize: () => undefined } as Ctx })
+      } catch (e) {
+        expect(e).toBeInstanceOf(AuthorizationError)
+        expect(e.message).toBe("GUARD: UNAUTHORIZED")
+      }
+      expect(testFn).toBeCalledTimes(0)
+    })
+
+    it("provides a good reason", async () => {
+      expect.assertions(3)
+      const testFn = jest.fn(() => Promise.resolve("good!"))
+
+      const resolver1 = resolver.pipe(Guard.authorizePipe("create", "reason2"), testFn)
+      try {
+        await resolver1({ somedata: "blah" }, { session: { $authorize: () => undefined } as Ctx })
+      } catch (e) {
+        expect(e).toBeInstanceOf(AuthorizationError)
+        expect(e.message).toBe(reason)
       }
       expect(testFn).toBeCalledTimes(0)
     })

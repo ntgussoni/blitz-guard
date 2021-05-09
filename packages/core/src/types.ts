@@ -25,25 +25,33 @@ export type PrismaModelsType<T> = keyof Omit<
   | "$on"
   | "$use"
 >
+export interface IRule<IResource, IAbility> {
+  reasonText: string
+  behavior: boolean
+  ability: AbilityType<IAbility>
+  resource: ResourceType<IResource>
+  guard?: (args: any) => Promise<boolean>
+  reason: (reason: string) => void
+}
 
 export type _CanType<IResource, IAbility> = (
   ability: AbilityType<IAbility>,
   resource: ResourceType<IResource>,
   guard?: (args: any) => Promise<boolean>,
-) => void
+) => Pick<IRule<IResource, IAbility>, "reason">
 
 export type _CannotType<IResource, IAbility> = (
   ability: AbilityType<IAbility>,
   resource: ResourceType<IResource>,
   guard?: (args: any) => Promise<boolean>,
-) => void
+) => Pick<IRule<IResource, IAbility>, "reason">
 
 export type CanType<IResource, IAbility> = (
   ability: AbilityType<IAbility>,
   resource: ResourceType<IResource>,
   ctx: Ctx,
   args: any,
-) => Promise<boolean>
+) => Promise<{ can: boolean; reason: string }>
 
 export type AbilitiesParamsType<IResource, IAbility> = {
   can: _CanType<IResource, IAbility>
@@ -53,22 +61,11 @@ export type IAbilities<IResource, IAbility> = (
   ctx: Ctx,
   params: AbilitiesParamsType<IResource, IAbility>,
 ) => Promise<void>
-export type RuleType<IResource, IAbility> = {
-  behavior: boolean
-  ability: AbilityType<IAbility>
-  resource: ResourceType<IResource>
-  guard?(args: any): Promise<boolean>
-}
 
 export interface IGuard<IResource, IAbility> {
   ability: IAbilities<IResource, IAbility>
-  getPreviouslyRanRules(): RuleType<IResource, IAbility>[]
-  can(
-    ability: AbilityType<IAbility>,
-    resource: ResourceType<IResource>,
-    ctx: Ctx,
-    args: any,
-  ): Promise<boolean>
+  getPreviouslyRanRules(): IRule<IResource, IAbility>[]
+  can: CanType<IResource, IAbility>
 }
 
 export interface IAuthorize<IResource, IAbility> {
@@ -93,7 +90,9 @@ export type useGuardInputType<IResource, IAbility> = [
 ]
 
 export interface IGetAbility<IResource, IAbility> {
-  (rules: useGuardInputType<IResource, IAbility>[], ctx: Ctx): Promise<boolean[]>
+  (rules: useGuardInputType<IResource, IAbility>[], ctx: Ctx): Promise<
+    { can: boolean; reason: string }[]
+  >
 }
 
 export interface IGuardBuilder<IResource = any, IAbility = any> {

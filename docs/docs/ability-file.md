@@ -121,3 +121,26 @@ cannot(ability, resource, guard)
 - **guard** (_optional_):<br/>
   It's the condition for the rule to apply, _args_ are passed down from a wrapped mutation or query or manually when calling [Guard.can](https://ntgussoni.github.io/blitz-guard/docs/secure-your-endpoints#check-rules-inside-a-querymutation)<br/>
   `async (args) => boolean`
+
+## Reasons
+
+With each rule, you can define a reason for it.
+
+The text will be used in replacement of the `AuthorizationError` message for both the [authorizePipe](secure-your-endpoints.md#guardauthorizepipe) and [authorize](secure-your-endpoints.md#guardauthorize)
+
+While using [Guard.can](secure-your-endpoints.md#check-rules-inside-a-querymutation) you will receive the result, true/false and the reason.
+
+```typescript
+...
+
+const Guard = GuardBuilder(
+	cannot('manage', 'all')
+
+	can("create", "article")
+	cannot("create", "article").reason("Because I say so")
+)
+
+const { can, reason } = Guard.can("create", "article",{},{})
+console.log(can) // false
+console.log(reason) // "Because I say so"
+```

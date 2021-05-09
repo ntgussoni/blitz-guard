@@ -24,7 +24,10 @@ describe("getAbility", () => {
         { user: "bar" },
       )
 
-      expect(res).toStrictEqual([true, true])
+      expect(res).toStrictEqual([
+        { can: true, reason: "" },
+        { can: true, reason: "" },
+      ])
     })
   })
 
@@ -40,7 +43,10 @@ describe("getAbility", () => {
             user: "bar",
           },
         ),
-      ).toStrictEqual([true, true])
+      ).toStrictEqual([
+        { can: true, reason: "" },
+        { can: true, reason: "" },
+      ])
     })
 
     it("returns the right values", async () => {
@@ -55,7 +61,11 @@ describe("getAbility", () => {
             user: "bar",
           },
         ),
-      ).toStrictEqual([true, false, true])
+      ).toStrictEqual([
+        { can: true, reason: "" },
+        { can: false, reason: "" },
+        { can: true, reason: "" },
+      ])
     })
   })
 })

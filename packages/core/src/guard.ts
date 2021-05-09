@@ -7,7 +7,7 @@ import {
   ResourceType,
   _CannotType,
   _CanType,
-  RuleType,
+  IRule,
 } from "./types"
 import { Manage, All } from "./const"
 import { authorizeInit } from "./authorize"
@@ -18,8 +18,21 @@ const isAbility = <T>(ruleAbility: AbilityType<T>, ability: AbilityType<T>) =>
 
 const isResource = <T>(ruleResource: ResourceType<T>, resource: ResourceType<T>) =>
   ruleResource === resource || ruleResource === All.value
+
+class Rule<IResource, IAbility> implements IRule<IResource, IAbility> {
+  public reasonText: string = ""
+
+  constructor(
+    public behavior: boolean,
+    public ability: AbilityType<IAbility>,
+    public resource: ResourceType<IResource>,
+    public guard?: (args: any) => Promise<boolean>,
+  ) {}
+
+  reason = (reason: string) => (this.reasonText = reason)
+}
 export class Guard<T, R> implements IGuard<T, R> {
-  private rules: RuleType<T, R>[]
+  private rules: IRule<T, R>[]
   ability: IGuard<T, R>["ability"]
 
   constructor(ability: IAbilities<T, R>) {
@@ -44,6 +57,7 @@ export class Guard<T, R> implements IGuard<T, R> {
     }
 
     let can = true
+    let reason = ""
     for (let i = 0; i < this.rules.length; i++) {
       const rule = this.rules[i]
 
@@ -51,6 +65,7 @@ export class Guard<T, R> implements IGuard<T, R> {
 
       if (matchAll) {
         can = rule.behavior
+        reason = rule.reasonText
         break
       }
 
@@ -58,27 +73,33 @@ export class Guard<T, R> implements IGuard<T, R> {
         if (rule.guard) {
           if (await rule.guard(args)) {
             can = rule.behavior
+            reason = rule.reasonText
           } else {
             continue
           }
         } else {
           can = rule.behavior
+          reason = rule.reasonText
         }
 
         break
       }
     }
-    return can
+    return { can, reason }
   }
 
   getPreviouslyRanRules = () => this.rules
 
   _can: _CanType<T, R> = (ability, resource, guard) => {
-    this.rules = [{ behavior: true, ability, resource, guard }, ...this.rules]
+    const newRule = new Rule<T, R>(true, ability, resource, guard)
+    this.rules = [newRule, ...this.rules]
+    return newRule
   }
 
   _cannot: _CannotType<T, R> = (ability, resource, guard) => {
-    this.rules = [{ behavior: false, ability, resource, guard }, ...this.rules]
+    const newRule = new Rule<T, R>(false, ability, resource, guard)
+    this.rules = [newRule, ...this.rules]
+    return newRule
   }
 }
 
