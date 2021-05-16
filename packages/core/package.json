@@ -52,7 +52,8 @@
     "jest-environment-jsdom-fourteen": "1.0.1",
     "react": "0.0.0-experimental-7f28234f8",
     "react-dom": "0.0.0-experimental-7f28234f8",
-    "react-test-renderer": "^16.9.0"
+    "react-test-renderer": "^16.9.0",
+    "blitz": "0.34.3"
   },
   "gitHead": "9ab97bab3e3cd5931008f474572097d02c8bebfa"
 }
