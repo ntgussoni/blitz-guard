@@ -5773,7 +5773,7 @@ blitz@0.29.5:
     pkg-dir "^5.0.0"
     resolve-from "^5.0.0"
 
-blitz@^0.34.3:
+blitz@0.34.3, blitz@^0.34.3:
   version "0.34.3"
   resolved "https://registry.yarnpkg.com/blitz/-/blitz-0.34.3.tgz#27f84c53c4ec3b01a428b1b87e9823013ad95ae1"
   integrity sha512-C0zNSrdAO+9L0yfX3bRU9T8orfhSQCdbjy46XW4GKNKotU7qHu0rpafJZX9hYf/0MEHmKXc+7yxByJpoH2+DiQ==
@@ -10047,7 +10047,7 @@ husky@4.3.8:
     slash "^3.0.0"
     which-pm-runs "^1.0.0"
 
-husky@6:
+husky@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/husky/-/husky-6.0.0.tgz#810f11869adf51604c32ea577edbc377d7f9319e"
   integrity sha512-SQS2gDTB7tBN486QSoKPKQItZw97BMOd+Kdb6ghfpBc0yXyzrddI0oDV5MkDAbuB4X2mO3/nj60TRMcYxwzZeQ==

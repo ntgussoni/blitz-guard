@@ -1,6 +1,7 @@
 module.exports = {
   preset: "ts-jest",
   testEnvironment: "jest-environment-jsdom-fourteen",
+  moduleDirectories: ["node_modules", "src"],
   moduleFileExtensions: ["tsx", "ts", "js", "json"],
   coverageReporters: ["json", "lcov", "text", "clover"],
   // collectCoverage: !!`Boolean(process.env.CI)`,
