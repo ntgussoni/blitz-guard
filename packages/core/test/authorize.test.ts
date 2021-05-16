@@ -3,14 +3,14 @@ import { GuardBuilder, IGuardBuilder } from "@blitz-guard/core"
 import { AuthorizationError, Ctx } from "blitz"
 
 let Guard: IGuardBuilder<"comment" | "camelCaseResource" | "article">
-
+const reason = "I must have a good reason!"
 describe("Authorize", () => {
   beforeAll(() => {
     Guard = GuardBuilder(async (_, { can, cannot }) => {
       cannot("manage", "all")
       can("create", "comment")
       can("create", "camelCaseResource")
-      cannot("create", "article")
+      cannot("create", "article").reason(reason)
     })
   })
 
@@ -54,7 +54,7 @@ describe("Authorize", () => {
         await Guard.authorize("create", "article", callback)({}, {})
       } catch (e) {
         expect(e).toBeInstanceOf(AuthorizationError)
-        expect(e.message).toBe("GUARD: UNAUTHORIZED")
+        expect(e.message).toBe(reason)
       }
       expect(callback).toBeCalledTimes(0)
     })

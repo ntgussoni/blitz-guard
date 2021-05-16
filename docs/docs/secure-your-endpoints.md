@@ -96,14 +96,13 @@ You can use `Guard.can` for this purpose.
 ```typescript {10}
 ...
 async function updateProject({ where, data }: UpdateProjectInput, ctx: Ctx) {
+    const { can: canSendEmail, reason } = Guard.can( "send", "project_email", ctx, { where, data });
 
-	if ((Guard.can( "send", "project_email", ctx, { where, data }))) {
-		await sendEmail()
-	}
+	if (canSendEmail) await sendEmail()
 
 	return await db.project.update({ where, data })
 }
 ...
 ```
 
-`Guard.can(ability, resource, ctx, args)`
+`Guard.can(ability, resource, ctx, args) // { can: boolean, reason: string }`

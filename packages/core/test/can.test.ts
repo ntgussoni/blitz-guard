@@ -7,7 +7,7 @@ describe("Guard.can", () => {
     expect.assertions(2)
     expect(Guard.instance.getPreviouslyRanRules().length).toBe(0)
     const result = await Guard.can("create", "comment", {}, null)
-    expect(result).toBe(true)
+    expect(result).toEqual({ can: true, reason: "" })
   })
 })
 
@@ -49,7 +49,7 @@ describe("Guard.can", () => {
     })
 
     const result = await Guard.can("create", "comment", {}, null)
-    expect(result).toBe(true)
+    expect(result).toEqual({ can: true, reason: "" })
 
     Guard = GuardBuilder(async (_, { can, cannot }) => {
       cannot("manage", "all")
@@ -59,7 +59,7 @@ describe("Guard.can", () => {
     })
 
     const result2 = await Guard.can("create", "comment", {}, null)
-    expect(result2).toBe(false)
+    expect(result2).toEqual({ can: false, reason: "" })
   })
 
   describe("resource == 'all'", () => {
@@ -68,7 +68,7 @@ describe("Guard.can", () => {
         cannot("create", "all")
       })
       const result = await Guard.can("create", "foo", {}, null)
-      expect(result).toBe(false)
+      expect(result).toEqual({ can: false, reason: "" })
     })
   })
 
@@ -78,7 +78,7 @@ describe("Guard.can", () => {
         cannot("manage", "comment")
       })
       const result = await Guard.can("bar", "comment", {}, null)
-      expect(result).toBe(false)
+      expect(result).toEqual({ can: false, reason: "" })
     })
   })
 
@@ -104,7 +104,7 @@ describe("Guard.can", () => {
           cannot("manage", "comment", async () => Promise.resolve(true))
         })
         const result = await Guard.can("bar", "comment", {}, null)
-        expect(result).toBe(false)
+        expect(result).toEqual({ can: false, reason: "" })
       })
     })
 
@@ -114,7 +114,7 @@ describe("Guard.can", () => {
           cannot("manage", "comment", async () => Promise.resolve(false))
         })
         const result = await Guard.can("bar", "comment", {}, null)
-        expect(result).toBe(true)
+        expect(result).toEqual({ can: true, reason: "" })
       })
     })
   })
@@ -166,6 +166,23 @@ describe("Guard.can", () => {
 
       expect(testGuard1).toBeCalledTimes(1)
       expect(testGuard2).toBeCalledTimes(1)
+    })
+  })
+
+  describe("reason", () => {
+    it("shows the last reason", async () => {
+      const wrongReason = "Because I want to"
+      const wrongReason2 = "Because I want to 2"
+
+      const rightReason = "im an admin"
+
+      Guard = GuardBuilder(async (_, { can, cannot }) => {
+        can("manage", "comment").reason(rightReason)
+        cannot("manage", "comment").reason(wrongReason)
+        cannot("manage", "comment").reason(wrongReason2)
+      })
+      const { reason } = await Guard.can("bar", "comment", {}, null)
+      expect(reason).toBe(wrongReason2)
     })
   })
 })

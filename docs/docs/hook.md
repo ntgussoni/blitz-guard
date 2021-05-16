@@ -14,9 +14,12 @@ import getAbility from "app/guard/queries/getAbility"
 
 const [[canCreateComment, canDeleteComment], { isLoading }] = useQuery(getAbility, [
   ["create", "comment"],
-  ["delete", "comment", /* args */],
+  ["delete", "comment" /* args */],
 ])
 
-console.log(canCreateComment) // true
-console.log(canDeleteComment) // false
+console.log(canCreateComment.can) // true
+console.log(canCreateComment.reason) // "some reason"
+
+console.log(canDeleteComment.can) // false
+console.log(canDeleteComment.reason) // "some reason"
 ```
