@@ -24,6 +24,7 @@ export type PrismaModelsType<T> = keyof Omit<
   | "$transaction"
   | "$on"
   | "$use"
+  | "$reset"                                           
 >
 export interface IRule<IResource, IAbility> {
   reasonText: string
