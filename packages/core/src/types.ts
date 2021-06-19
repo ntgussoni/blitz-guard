@@ -9,6 +9,9 @@ export type ResourceType<IResource> = Static<typeof All> | IResource
 
 // Horrible hack: It extracts the models from prisma db types
 // This should change with this https://github.com/prisma/prisma/issues/3545
+/**
+ * @deprecated Use `Prisma.ModelName` instead.
+ */
 export type PrismaModelsType<T> = keyof Omit<
   T,
   | "disconnect"
@@ -24,6 +27,7 @@ export type PrismaModelsType<T> = keyof Omit<
   | "$transaction"
   | "$on"
   | "$use"
+  | "$reset"
 >
 export interface IRule<IResource, IAbility> {
   reasonText: string

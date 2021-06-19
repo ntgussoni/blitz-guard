@@ -1,7 +1,7 @@
-import db from "db"
-import { GuardBuilder, PrismaModelsType } from "@blitz-guard/core"
+import db, { Prisma } from "db"
+import { GuardBuilder } from "@blitz-guard/core"
 
-type ExtendedResourceTypes = "comment" | "article" | PrismaModelsType<typeof db>
+type ExtendedResourceTypes = "comment" | "article" | Prisma.ModelName
 
 type ExtendedAbilityTypes = "send email"
 
