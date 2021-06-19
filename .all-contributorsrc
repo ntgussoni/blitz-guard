@@ -42,7 +42,7 @@
         "doc"
       ]
     },
-     {
+    {
       "login": "Zxilly",
       "name": "Zxilly",
       "avatar_url": "https://avatars.githubusercontent.com/u/31370133?v=4",
@@ -58,6 +58,16 @@
       "profile": "https://oesterkilde.dk/",
       "contributions": [
         "doc"
+      ]
+    },
+    {
+      "login": "frankiesardo",
+      "name": "Francesco Sardo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1476561?v=4",
+      "profile": "https://github.com/frankiesardo",
+      "contributions": [
+        "code",
+        "bug"
       ]
     }
   ],
