@@ -29,7 +29,6 @@ const Guard = GuardBuilder<ExtendedResourceTypes, ExtendedAbilityTypes>(
 			})
 		}
     */
-    can("update", "project")
   }
 )
 

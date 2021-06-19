@@ -1,2 +1,2 @@
-import Ability from "../ability"
-export default Ability.getAbility
+import Guard from "../ability"
+export default Guard.getAbility

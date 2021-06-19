@@ -1,20 +1,12 @@
-const { BlitzGuardMiddleware } = require("@blitz-guard/core/dist/middleware")
-const { sessionMiddleware, simpleRolesIsAuthorized } = require("@blitzjs/server")
+import { BlitzConfig, sessionMiddleware, simpleRolesIsAuthorized } from "blitz"
 
-module.exports = {
+const config: BlitzConfig = {
   middleware: [
     sessionMiddleware({
+      cookiePrefix: "test-blitz",
       isAuthorized: simpleRolesIsAuthorized,
     }),
-    BlitzGuardMiddleware({
-      excluded: [
-        "/api/auth/mutations/login",
-        "/api/auth/mutations/logout",
-        "/api/guard/queries/getAbility",
-      ],
-    }),
   ],
-
   /* Uncomment this to customize the webpack config
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     // Note: we provide webpack above so you should not `require` it
@@ -24,3 +16,4 @@ module.exports = {
   },
   */
 }
+module.exports = config
