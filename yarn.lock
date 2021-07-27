@@ -3532,12 +3532,12 @@
   dependencies:
     "@prisma/engines" "2.15.0-25.e51dc3b5a9ee790a07104bec1c9477d51740fe54"
 
-"@prisma/client@~2.15":
-  version "2.15.0"
-  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.15.0.tgz#41ee22c60778b54aec0f6d4832c2d35fbf9eb423"
-  integrity sha512-3j4OoLpAGF104KAenUFJM9sU2+4jRP+RlrlYssBHkwBf+/5+2ihSpcmFiWIw1vXNRdmZtivjwhjcVtmjZPJktw==
+"@prisma/client@~2.28":
+  version "2.28.0"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.28.0.tgz#6cd91a3c2757814a9454ea23d7e33cd2ff3952db"
+  integrity sha512-iwdxpy0Nz8N40MnhdlRvhZOBk8+GawpEsY5FU8Tfw1k9rvIeTAi+wBHrqhY8bXq6pneZkzrdQ1Hj3tqkrbRmoQ==
   dependencies:
-    "@prisma/engines-version" "2.15.0-25.e51dc3b5a9ee790a07104bec1c9477d51740fe54"
+    "@prisma/engines-version" "2.28.0-17.89facabd0366f63911d089156a7a70125bfbcd27"
 
 "@prisma/debug@2.14.0":
   version "2.14.0"
@@ -3591,10 +3591,10 @@
     terminal-link "^2.1.1"
     undici "3.3.3"
 
-"@prisma/engines-version@2.15.0-25.e51dc3b5a9ee790a07104bec1c9477d51740fe54":
-  version "2.15.0-25.e51dc3b5a9ee790a07104bec1c9477d51740fe54"
-  resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-2.15.0-25.e51dc3b5a9ee790a07104bec1c9477d51740fe54.tgz#d9c887bc8f30d1f107c9021b2565a8672d62622d"
-  integrity sha512-KDxk7Zsc9tDoShCE7v+O1SnCUTUkMdfezjbuz9CBvdEBGMtYLgyHaZAO8M038uqy8KjgwV9PzyoLqvVfzfsngg==
+"@prisma/engines-version@2.28.0-17.89facabd0366f63911d089156a7a70125bfbcd27":
+  version "2.28.0-17.89facabd0366f63911d089156a7a70125bfbcd27"
+  resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-2.28.0-17.89facabd0366f63911d089156a7a70125bfbcd27.tgz#6dbccdce64f792dbc21c99daef80ec03020c110d"
+  integrity sha512-BWTvF1mGxjG8EtG215uhxdeW5Uf5aiH4xhfzcFPFC3Ux5BdEM1uEBrLIixX67mI+ZNhqNZSBPf0DSf2I1IsaZw==
 
 "@prisma/engines@2.14.0-28.5d491261d382a2a5ffdc71de17072b0e409f1cc1":
   version "2.14.0-28.5d491261d382a2a5ffdc71de17072b0e409f1cc1"
