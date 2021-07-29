@@ -1,6 +1,6 @@
 {
   "name": "@blitz-guard/core",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Authorization for Blitz.js",
   "peerDependencies": {
     "blitz": "^0.38.6"
