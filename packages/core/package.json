@@ -10,9 +10,9 @@
     "dev": "rollup -c rollup.config.js --watch",
     "build": "rollup -c rollup.config.js",
     "lint": "eslint --ignore-path ../../.gitignore --ext \".js,.ts,.tsx\" src test",
-    "watch": "tsdx test --watch",
-    "test": "tsdx test --coverage",
-    "test:watch": "tsdx test --watch"
+    "watch": "jest --watch",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -48,15 +48,18 @@
     "tslib": "2.3.0"
   },
   "devDependencies": {
+    "jest": "27.0.6",
+    "@babel/preset-env": "^7.14.8",
+    "@types/jest": "^26.0.24",
     "@types/react-dom": "17.0.9",
-    "babel-jest": "27.0.6",
+    "babel-jest": "^27.0.6",
     "blitz": "^0.38.6",
-    "jest-environment-jsdom-fourteen": "1.0.1",
-    "ts-jest": "27.0.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-test-renderer": "^17.0.2",
-    "superjson": "^1.7.4"
+    "superjson": "^1.7.4",
+    "ts-jest": "^27.0.4",
+    "typescript": "^4.3.5"
   },
   "gitHead": "9ab97bab3e3cd5931008f474572097d02c8bebfa"
 }
