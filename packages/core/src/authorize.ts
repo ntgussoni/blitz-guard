@@ -1,29 +1,33 @@
-import { Ctx, AuthorizationError } from "blitz"
+import { AuthorizationError, Ctx } from "blitz"
+// import { GuardAuthorizationError } from "./GuardAuthorizationError"
 import { IGuard, IAuthorize, IAuthorizePipe } from "./types"
 
-const authorize = <T, R>(GuardInstance: IGuard<T, R>): IAuthorize<T, R> => {
+export const authorize = <IResource, IAbility>(
+  GuardInstance: IGuard<IResource, IAbility>,
+): IAuthorize<IResource, IAbility> => {
   return (ability, resource, resolver) => async (args, ctx) => {
     ;(ctx as any).__securedByGuard = true
     const { can: isAuthorized, reason } = await GuardInstance.can(ability, resource, ctx, args)
+
     if (!isAuthorized) throw new AuthorizationError(reason || "GUARD: UNAUTHORIZED")
+    // We need a new version of superjson that serializes errors properly
+    // throw new GuardAuthorizationError<IResource, IAbility>({ ability, resource, reason })
 
     return resolver(args, ctx as Ctx)
   }
 }
 
-const authorizePipe = <T, R>(GuardInstance: IGuard<T, R>): IAuthorizePipe<T, R> => {
+export const authorizePipe = <IResource, IAbility>(
+  GuardInstance: IGuard<IResource, IAbility>,
+): IAuthorizePipe<IResource, IAbility> => {
   return (ability, resource) => async (input, ctx) => {
     ;(ctx as any).__securedByGuard = true
     const { can: isAuthorized, reason } = await GuardInstance.can(ability, resource, ctx, input)
+
     if (!isAuthorized) throw new AuthorizationError(reason || "GUARD: UNAUTHORIZED")
 
-    return input
-  }
-}
+    // throw new GuardAuthorizationError<IResource, IAbility>({ ability, resource, reason })
 
-export function authorizeInit<T, R>(GuardInstance: IGuard<T, R>) {
-  return {
-    authorize: authorize<T, R>(GuardInstance),
-    authorizePipe: authorizePipe<T, R>(GuardInstance),
+    return input
   }
 }

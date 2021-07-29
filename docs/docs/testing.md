@@ -35,7 +35,7 @@ const Guard = GuardBuilder(
 
 // test
 
-expect(Guard.can("read","article", {}, {})).toBe(true)
+expect(Guard.can("read","article", {}, {}).can).toBe(true)
 ```
 
 ## Testing your endpoints
@@ -58,6 +58,7 @@ try {
   let error = e as AuthorizationError
   expect(error.statusCode).toEqual(403)
   expect(error.name).toEqual("AuthorizationError")
+  // expect(error.message).toEqual("Some reason")
 }
 ...
 ```

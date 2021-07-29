@@ -1,4 +1,4 @@
-import { Ctx, PromiseReturnType } from "blitz"
+import { AuthorizationError, Ctx, PromiseReturnType } from "blitz"
 import { All, BasicAbilities } from "./const"
 import { Static } from "runtypes"
 import { Guard } from "./guard"
@@ -72,6 +72,15 @@ export interface IGuard<IResource, IAbility> {
   can: CanType<IResource, IAbility>
 }
 
+export type IGuardAuthErrorProps<IResource, IAbility> = {
+  ability: AbilityType<IAbility>
+  resource: ResourceType<IResource>
+  reason?: string
+}
+
+export interface IGuardAuthorizationError<IResource, IAbility> extends AuthorizationError {
+  rule: { ability: AbilityType<IAbility>; resource: ResourceType<IResource> }
+}
 export interface IAuthorize<IResource, IAbility> {
   <U, W extends Promise<any>, R extends (args: U, ctx: Ctx) => W, TResult = PromiseReturnType<R>>(
     ability: AbilityType<IAbility>,

@@ -10,8 +10,10 @@ import {
   IRule,
 } from "./types"
 import { Manage, All } from "./const"
-import { authorizeInit } from "./authorize"
+import { authorizeInit } from "./authorizeInit"
 import { getAbilityInit } from "./getAbility"
+// import SuperJson from "superjson"
+// import { GuardAuthorizationError } from "./GuardAuthorizationError"
 
 const isAbility = <T>(ruleAbility: AbilityType<T>, ability: AbilityType<T>) =>
   ruleAbility === ability || ruleAbility === Manage.value
@@ -107,6 +109,10 @@ export function GuardBuilder<T = any, R = any>(ability: IAbilities<T, R>): IGuar
   const instance = new Guard<T, R>(ability)
   const { authorize, authorizePipe } = authorizeInit<T, R>(instance)
   const getAbility = getAbilityInit<T, R>(instance)
+
+  // SuperJson.registerClass(GuardAuthorizationError)
+  // SuperJson.allowErrorProps("rule")
+
   return {
     instance,
     can: instance.can,

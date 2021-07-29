@@ -9,7 +9,9 @@ describe("getAbility", () => {
       cannot("manage", "all")
       can("create", "comment")
       can("create", "article")
-      can("create", "user", async ({ id }) => id === "foo" && ctx.user === "bar")
+      can("create", "user", async ({ id }) => id === "foo" && ctx.user === "bar").reason(
+        "The user should be valid",
+      )
       can("create", "category", async () => ctx.user === "bar")
     })
   })
@@ -62,7 +64,7 @@ describe("getAbility", () => {
           },
         ),
       ).toStrictEqual([
-        { can: true, reason: "" },
+        { can: true, reason: "The user should be valid" },
         { can: false, reason: "" },
         { can: true, reason: "" },
       ])
