@@ -5,8 +5,8 @@ sidebar_label: Testing your rules
 slug: /testing-your-rules
 ---
 
-Testing your rules is straightforward. S
-imply import your Guard instance from the ability file and use `Guard.can` to test the rules against different conditions.
+Testing your rules is straightforward.
+Simply import your Guard instance from the ability file and use `Guard.can` to test the rules against different conditions.
 
 ## Testing your business logic
 

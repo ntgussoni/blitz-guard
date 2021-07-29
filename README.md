@@ -43,6 +43,8 @@ Using the recipe is the easiest way. It will add the packages and create the bas
     <td align="center"><a href="https://github.com/Fralez"><img src="https://avatars.githubusercontent.com/u/40028772?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Franco González</b></sub></a><br /><a href="https://github.com/ntgussoni/blitz-guard/commits?author=Fralez" title="Documentation">📖</a></td>
     <td align="center"><a href="https://learningman.top"><img src="https://avatars.githubusercontent.com/u/31370133?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Zxilly</b></sub></a><br /><a href="https://github.com/ntgussoni/blitz-guard/issues?q=author%3AZxilly" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://oesterkilde.dk/"><img src="https://avatars.githubusercontent.com/u/6379824?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Kevin Østerkilde</b></sub></a><br /><a href="https://github.com/ntgussoni/blitz-guard/commits?author=Kosai106" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/frankiesardo"><img src="https://avatars.githubusercontent.com/u/1476561?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Francesco Sardo</b></sub></a><br /><a href="https://github.com/ntgussoni/blitz-guard/commits?author=frankiesardo" title="Code">💻</a> <a href="https://github.com/ntgussoni/blitz-guard/issues?q=author%3Afrankiesardo" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/bravo-kernel"><img src="https://avatars.githubusercontent.com/u/230500?v=4?s=80" width="80px;" alt=""/><br /><sub><b>bravo-kernel</b></sub></a><br /><a href="https://github.com/ntgussoni/blitz-guard/commits?author=bravo-kernel" title="Documentation">📖</a></td>
   </tr>
 </table>
 
