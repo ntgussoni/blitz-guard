@@ -53,20 +53,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.16.1"
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache node_modules
-        id: yarn-cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            /home/runner/.cache/Cypress
-            C:\Users\runneradmin\AppData\Local\Cypress\Cache
-          key: ${{ runner.os }}-yarn-v2-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-v2-
       - name: Install dependencies
         run: yarn install --frozen-lockfile --silent
         env:
@@ -94,20 +80,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.16.1"
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache node_modules
-        id: yarn-cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            /home/runner/.cache/Cypress
-            C:\Users\runneradmin\AppData\Local\Cypress\Cache
-          key: ${{ runner.os }}-yarn-v2-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-v2-
       - name: Install dependencies
         run: yarn install --frozen-lockfile --silent
         env:
