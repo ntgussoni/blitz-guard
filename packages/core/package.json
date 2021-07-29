@@ -3,7 +3,7 @@
   "version": "0.3.1",
   "description": "Authorization for Blitz.js",
   "peerDependencies": {
-    "blitz": "^0.38.0"
+    "blitz": "^0.38.6"
   },
   "scripts": {
     "clean": "rimraf dist",
@@ -44,17 +44,17 @@
   },
   "homepage": "https://github.com/ntgussoni/blitz-guard#readme",
   "dependencies": {
-    "runtypes": "^5.2.0",
-    "tslib": "2.1.0"
+    "runtypes": "^6.3.1",
+    "tslib": "2.3.0"
   },
   "devDependencies": {
-    "@types/react-dom": "16.9.8",
+    "@types/react-dom": "17.0.9",
     "babel-jest": "26.3.0",
-    "blitz": "^0.38.0",
+    "blitz": "^0.38.6",
     "jest-environment-jsdom-fourteen": "1.0.1",
-    "react": "0.0.0-experimental-7f28234f8",
-    "react-dom": "0.0.0-experimental-7f28234f8",
-    "react-test-renderer": "^16.9.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-test-renderer": "^17.0.2",
     "superjson": "^1.7.4"
   },
   "gitHead": "9ab97bab3e3cd5931008f474572097d02c8bebfa"
