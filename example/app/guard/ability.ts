@@ -7,7 +7,7 @@ type ExtendedAbilityTypes = "send email"
 
 const Guard = GuardBuilder<ExtendedResourceTypes, ExtendedAbilityTypes>(
   async (ctx, { can, cannot }) => {
-    cannot("manage", "all")
+    cannot("manage", "all").reason("You did something wrong!")
     /*
 		Your rules go here, you can start by removing access to everything
 		and gradually adding the necessary permissions

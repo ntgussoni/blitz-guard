@@ -28,7 +28,7 @@
     "printWidth": 100
   },
   "dependencies": {
-    "@blitz-guard/core": "0.3.1",
+    "@blitz-guard/core": "file:../packages/core",
     "@prisma/client": "~2.20",
     "blitz": "0.38.0",
     "final-form": "4.20.2",

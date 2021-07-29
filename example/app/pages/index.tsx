@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Suspense } from "react"
 import { Link, BlitzPage, useMutation, Routes } from "blitz"
 import Layout from "app/core/layouts/Layout"
