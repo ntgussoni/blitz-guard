@@ -1,11 +1,14 @@
-import { Ctx } from "blitz"
-import db, { Prisma } from "db"
+import { resolver } from "blitz"
+import db from "db"
+import { z } from "zod"
 
-type CreateProjectInput = Pick<Prisma.ProjectCreateArgs, "data">
-export default async function createProject({ data }: CreateProjectInput, ctx: Ctx) {
-  ctx.session.authorize()
+const CreateProject = z.object({
+  name: z.string(),
+})
 
-  const project = await db.project.create({ data })
+export default resolver.pipe(resolver.zod(CreateProject), resolver.authorize(), async (input) => {
+  // TODO: in multi-tenant app, you must add validation to ensure correct tenant
+  const project = await db.project.create({ data: input })
 
   return project
-}
+})

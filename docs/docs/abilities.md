@@ -12,7 +12,7 @@ Out of the box the following are present `create, read, update, delete, manage`.
 ## Extending the abilities
 
 ```typescript {4}
-import { GuardBuilder, PrismaModelsType } from "@blitz-guard/core"
+import { GuardBuilder } from "@blitz-guard/core"
 
 type ExtendedResourceTypes = ...
 type ExtendedAbilityTypes = "send email"

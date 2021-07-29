@@ -1,12 +1,14 @@
-import { Ctx } from "blitz"
-import db, { Prisma } from "db"
+import { resolver } from "blitz"
+import db from "db"
+import { z } from "zod"
 
-type DeleteProjectInput = Pick<Prisma.ProjectDeleteArgs, "where">
+const DeleteProject = z.object({
+  id: z.number(),
+})
 
-export default async function deleteProject({ where }: DeleteProjectInput, ctx: Ctx) {
-  ctx.session.authorize()
-
-  const project = await db.project.delete({ where })
+export default resolver.pipe(resolver.zod(DeleteProject), resolver.authorize(), async ({ id }) => {
+  // TODO: in multi-tenant app, you must add validation to ensure correct tenant
+  const project = await db.project.deleteMany({ where: { id } })
 
   return project
-}
+})

@@ -1,4 +1,4 @@
-import { Ctx, PromiseReturnType } from "blitz"
+import { AuthorizationError, Ctx, PromiseReturnType } from "blitz"
 import { All, BasicAbilities } from "./const"
 import { Static } from "runtypes"
 import { Guard } from "./guard"
@@ -9,6 +9,9 @@ export type ResourceType<IResource> = Static<typeof All> | IResource
 
 // Horrible hack: It extracts the models from prisma db types
 // This should change with this https://github.com/prisma/prisma/issues/3545
+/**
+ * @deprecated Use `Prisma.ModelName` instead.
+ */
 export type PrismaModelsType<T> = keyof Omit<
   T,
   | "disconnect"
@@ -24,7 +27,7 @@ export type PrismaModelsType<T> = keyof Omit<
   | "$transaction"
   | "$on"
   | "$use"
-  | "$reset"                                           
+  | "$reset"
 >
 export interface IRule<IResource, IAbility> {
   reasonText: string
@@ -69,6 +72,15 @@ export interface IGuard<IResource, IAbility> {
   can: CanType<IResource, IAbility>
 }
 
+export type IGuardAuthErrorProps<IResource, IAbility> = {
+  ability: AbilityType<IAbility>
+  resource: ResourceType<IResource>
+  reason?: string
+}
+
+export interface IGuardAuthorizationError<IResource, IAbility> extends AuthorizationError {
+  rule: { ability: AbilityType<IAbility>; resource: ResourceType<IResource> }
+}
 export interface IAuthorize<IResource, IAbility> {
   <U, W extends Promise<any>, R extends (args: U, ctx: Ctx) => W, TResult = PromiseReturnType<R>>(
     ability: AbilityType<IAbility>,

@@ -1,5 +1,5 @@
 /* eslint-disable require-await */
-import { GuardBuilder, IGuardBuilder } from "@blitz-guard/core"
+import { GuardBuilder, IGuardBuilder } from "../index"
 import { AuthorizationError, Ctx } from "blitz"
 
 let Guard: IGuardBuilder<"comment" | "camelCaseResource" | "article">
@@ -53,8 +53,11 @@ describe("Authorize", () => {
       try {
         await Guard.authorize("create", "article", callback)({}, {})
       } catch (e) {
+        // expect(e).toBeInstanceOf(GuardAuthorizationError)
         expect(e).toBeInstanceOf(AuthorizationError)
         expect(e.message).toBe(reason)
+        // expect(e.rule.ability).toBe("create")
+        // expect(e.rule.resource).toBe("article")
       }
       expect(callback).toBeCalledTimes(0)
     })

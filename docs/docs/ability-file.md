@@ -10,10 +10,10 @@ This file is the main entrypoint for your rules, it will instantiate Guard and a
 See: `app/guard/ability.ts`
 
 ```typescript
-import db from "db"
-import { GuardBuilder, PrismaModelsType } from "@blitz-guard/core"
+import db, { Prisma } from "db"
+import { GuardBuilder } from "@blitz-guard/core"
 
-type ExtendedResourceTypes = "comment" | "article" | PrismaModelsType<typeof db>
+type ExtendedResourceTypes = "comment" | "article" | Prisma.ModelName
 type ExtendedAbilityTypes = "send email"
 
 const Guard = GuardBuilder<ExtendedResourceTypes, ExtendedAbilityTypes>(

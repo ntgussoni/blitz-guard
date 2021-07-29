@@ -1,10 +1,19 @@
-import Guard from "app/guard/ability"
-import db, { Prisma } from "db"
+import { resolver } from "blitz"
+import db from "db"
+import { z } from "zod"
 
-type UpdateProjectInput = Pick<Prisma.ProjectUpdateArgs, "where" | "data">
+const UpdateProject = z.object({
+  id: z.number(),
+  name: z.string(),
+})
 
-async function updateProject({ where, data }: UpdateProjectInput) {
-  return await db.project.update({ where, data })
-}
+export default resolver.pipe(
+  resolver.zod(UpdateProject),
+  resolver.authorize(),
+  async ({ id, ...data }) => {
+    // TODO: in multi-tenant app, you must add validation to ensure correct tenant
+    const project = await db.project.update({ where: { id }, data })
 
-export default Guard.authorize("update", "project", updateProject)
+    return project
+  }
+)

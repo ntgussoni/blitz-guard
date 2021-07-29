@@ -1,6 +1,13 @@
-import { AppProps, ErrorComponent, useRouter, AuthenticationError, AuthorizationError } from "blitz"
-import { ErrorBoundary, FallbackProps } from "react-error-boundary"
-import { queryCache } from "react-query"
+import {
+  AppProps,
+  ErrorComponent,
+  useRouter,
+  AuthenticationError,
+  AuthorizationError,
+  ErrorFallbackProps,
+  useQueryErrorResetBoundary,
+} from "blitz"
+import { ErrorBoundary } from "react-error-boundary"
 import LoginForm from "app/auth/components/LoginForm"
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -11,33 +18,26 @@ export default function App({ Component, pageProps }: AppProps) {
     <ErrorBoundary
       FallbackComponent={RootErrorFallback}
       resetKeys={[router.asPath]}
-      onReset={() => {
-        // This ensures the Blitz useQuery hooks will automatically refetch
-        // data any time you reset the error boundary
-        queryCache.resetErrorBoundaries()
-      }}
+      onReset={useQueryErrorResetBoundary().reset}
     >
       {getLayout(<Component {...pageProps} />)}
     </ErrorBoundary>
   )
 }
 
-function RootErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
+function RootErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
   if (error instanceof AuthenticationError) {
     return <LoginForm onSuccess={resetErrorBoundary} />
   } else if (error instanceof AuthorizationError) {
     return (
       <ErrorComponent
-        statusCode={(error as any).statusCode}
+        statusCode={error.statusCode}
         title="Sorry, you are not authorized to access this"
       />
     )
   } else {
     return (
-      <ErrorComponent
-        statusCode={(error as any)?.statusCode || 400}
-        title={error?.message || error?.name}
-      />
+      <ErrorComponent statusCode={error.statusCode || 400} title={error.message || error.name} />
     )
   }
 }
