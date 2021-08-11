@@ -1044,7 +1044,7 @@
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
 "@blitz-guard/core@file:packages/core":
-  version "0.3.1"
+  version "0.4.1"
   dependencies:
     runtypes "^6.3.1"
     tslib "2.3.0"
@@ -13050,10 +13050,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier-plugin-prisma@0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-prisma/-/prettier-plugin-prisma-0.7.0.tgz#72a8cb9e9c45f5089c739219622b0a2103a673b5"
-  integrity sha512-fSdrFk3HrKhV3rdxVh6SIAcPTRpliNakAaxEjArsQQHNkxwVZ7Oy26ozbSepx4ggdYO6WybkhpWwM74kCFwYBQ==
+prettier-plugin-prisma@2.29.0:
+  version "2.29.0"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-prisma/-/prettier-plugin-prisma-2.29.0.tgz#e15f50fc70145ab38a8834c26dc95336f207e041"
+  integrity sha512-ct+ER3R+WB/l5/lwB6k28v9enmwxKBCUkPTWYkCUc8x4+KT6pbZTNnD+mogqioJjq3PTFNgZebpbrCj5314KHA==
 
 prettier@2.3.1:
   version "2.3.1"
