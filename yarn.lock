@@ -1044,7 +1044,7 @@
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
 "@blitz-guard/core@file:packages/core":
-  version "0.3.1"
+  version "0.4.1"
   dependencies:
     runtypes "^6.3.1"
     tslib "2.3.0"
@@ -16798,7 +16798,7 @@ zip-stream@^3.0.1:
     compress-commons "^3.0.0"
     readable-stream "^3.6.0"
 
-zod@1.11.17:
-  version "1.11.17"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-1.11.17.tgz#2aae9e91fc66128116ae9844e8f416a95f453f8e"
-  integrity sha512-UzIwO92D0dSFwIRyyqAfRXICITLjF0IP8tRbEK/un7adirMssWZx8xF/1hZNE7t61knWZ+lhEuUvxlu2MO8qqA==
+zod@3.8.1:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.8.1.tgz#b1173c3b4ac2a9e06d302ff580e3b41902766b9f"
+  integrity sha512-u4Uodl7dLh8nXZwqXL1SM5FAl5b4lXYHOxMUVb9lqhlEAZhA2znX+0oW480m0emGFMxpoRHzUncAqRkc4h8ZJA==
