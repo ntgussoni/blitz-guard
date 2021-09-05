@@ -1044,9 +1044,9 @@
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
 "@blitz-guard/core@file:packages/core":
-  version "0.3.1"
+  version "0.4.1"
   dependencies:
-    runtypes "^6.3.1"
+    runtypes "6.4.0"
     tslib "2.3.0"
 
 "@blitzjs/babel-preset@0.38.6":
@@ -14349,10 +14349,10 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-runtypes@^6.3.1:
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/runtypes/-/runtypes-6.3.1.tgz#58566dde275e60d762f3cc0d7036d5cb0b79a8d1"
-  integrity sha512-XMroIPFshQw4A41tfvcpMECESJSydiIGxDtQZxryFZMfL6QGYuoBjixIpQj2vL1MJSIbrcgQnw/1tzfyABmVkg==
+runtypes@6.4.0, runtypes@^6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/runtypes/-/runtypes-6.4.0.tgz#92a7f9e37edbd4c53aea404a07ebdd30d3b66eb6"
+  integrity sha512-WHFztoMVkZ3+KK9qPTAox9xUW1IqihItKsjLMKzGsY89EkEMSPsYV5mubz/Fkg27tt4zRm+fT+wKiuX2/3PfLQ==
 
 rxjs@^5.5.2:
   version "5.5.12"
