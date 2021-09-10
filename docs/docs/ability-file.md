@@ -23,7 +23,7 @@ const Guard = GuardBuilder<ExtendedResourceTypes, ExtendedAbilityTypes>(
     can("read", "article")
     can("read", "comment")
 
-    if (ctx.session.isAuthorized()) {
+    if (ctx.session.$isAuthorized()) {
       can("create", "article")
       can("create", "comment")
       can("send email", "comment")
