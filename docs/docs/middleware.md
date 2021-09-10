@@ -19,9 +19,9 @@ const { BlitzGuardMiddleware } = require("@blitz-guard/core/dist/middleware")
 
 module.exports = {
   middleware: [
-    ...BlitzGuardMiddleware({
+    BlitzGuardMiddleware({
       excluded: [],
-    }),
+    })
   ],
 }
 ```
