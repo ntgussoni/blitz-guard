@@ -1044,7 +1044,7 @@
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
 "@blitz-guard/core@file:packages/core":
-  version "0.3.1"
+  version "0.4.1"
   dependencies:
     runtypes "^6.3.1"
     tslib "2.3.0"
@@ -14316,10 +14316,10 @@ rollup-pluginutils@^2.5.0, rollup-pluginutils@^2.8.1, rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@2.55.0:
-  version "2.55.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.55.0.tgz#e23bb51194d9706b4661515a14feeefaaa1830c2"
-  integrity sha512-Atc3QqelKzrKwRkqnSdq0d2Mi8e0iGuL+kZebKMZ4ysyWHD5hw9VfVCAuODIW5837RENV8LXcbAEHurYf+ArvA==
+rollup@2.58.0:
+  version "2.58.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.58.0.tgz#a643983365e7bf7f5b7c62a8331b983b7c4c67fb"
+  integrity sha512-NOXpusKnaRpbS7ZVSzcEXqxcLDOagN6iFS8p45RkoiMqPHDLwJm758UF05KlMoCRbLBTZsPOIa887gZJ1AiXvw==
   optionalDependencies:
     fsevents "~2.3.2"
 
