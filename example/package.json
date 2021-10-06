@@ -32,7 +32,7 @@
     "@blitz-guard/core": "file:../packages/core",
     "@prisma/client": "~2.20",
     "blitz": "0.38.6",
-    "final-form": "4.20.2",
+    "final-form": "4.20.4",
     "prisma": "~2.20",
     "react": "0.0.0-experimental-6a589ad71",
     "react-dom": "0.0.0-experimental-6a589ad71",
