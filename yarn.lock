@@ -1046,7 +1046,7 @@
 "@blitz-guard/core@file:packages/core":
   version "0.4.1"
   dependencies:
-    runtypes "^6.3.1"
+    runtypes "6.6.0"
     tslib "2.3.0"
 
 "@blitzjs/babel-preset@0.38.6":
@@ -14361,10 +14361,10 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-runtypes@^6.3.1:
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/runtypes/-/runtypes-6.3.1.tgz#58566dde275e60d762f3cc0d7036d5cb0b79a8d1"
-  integrity sha512-XMroIPFshQw4A41tfvcpMECESJSydiIGxDtQZxryFZMfL6QGYuoBjixIpQj2vL1MJSIbrcgQnw/1tzfyABmVkg==
+runtypes@6.6.0, runtypes@^6.6.0:
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/runtypes/-/runtypes-6.6.0.tgz#48e353d8b0f641ab5ec5d80fa96dd7bd41ea3281"
+  integrity sha512-ddM7sgB3fyboDlBzEYFQ04L674sKjbs4GyW2W32N/5Ae47NRd/GyMASPC2PFw8drPHYGEcZ0mZ26r5RcB8msfQ==
 
 rxjs@^5.5.2:
   version "5.5.12"
