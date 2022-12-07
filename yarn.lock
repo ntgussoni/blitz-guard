@@ -15249,10 +15249,10 @@ superjson@1.7.2:
   dependencies:
     debug "^4.3.1"
 
-superjson@^1.9.1:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/superjson/-/superjson-1.9.1.tgz#e23bd2e8cf0f4ade131d6d769754cac7eaa8ab34"
-  integrity sha512-oT3HA2nPKlU1+5taFgz/HDy+GEaY+CWEbLzaRJVD4gZ7zMVVC4GDNFdgvAZt6/VuIk6D2R7RtPAiCHwmdzlMmg==
+superjson@^1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/superjson/-/superjson-1.12.0.tgz#7b314b982bfebc5b8e56054b8528813fdda8fc7a"
+  integrity sha512-B4tefmFqj8KDShHi2br2rz0kBlUJuQHtxMCydEuHvooL+6EscROTNWRfOLMDxW1dS/daK2zZr3C3N9DU+jXATQ==
   dependencies:
     copy-anything "^3.0.2"
 
