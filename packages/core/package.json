@@ -43,7 +43,7 @@
     "tslib": "2.3.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-env": "^7.23.3",
     "@types/jest": "26.0.24",
     "@types/react-dom": "17.0.9",
     "babel-jest": "^27.0.6",
