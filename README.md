@@ -1,3 +1,35 @@
+
+<div align="right">
+  <details>
+    <summary >🌐 Language</summary>
+    <div>
+      <div align="center">
+        <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=en">English</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=zh-CN">简体中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=zh-TW">繁體中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=ja">日本語</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=ko">한국어</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=hi">हिन्दी</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=th">ไทย</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=fr">Français</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=de">Deutsch</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=es">Español</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=it">Italiano</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=ru">Русский</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=pt">Português</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=nl">Nederlands</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=pl">Polski</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=ar">العربية</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=fa">فارسی</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=tr">Türkçe</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=vi">Tiếng Việt</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=id">Bahasa Indonesia</a>
+        | <a href="https://openaitx.github.io/view.html?user=ntgussoni&project=blitz-guard&lang=as">অসমীয়া</
+      </div>
+    </div>
+  </details>
+</div>
+
 <p align="center">
  <img src="blitz-guard.png" width="500px" />
 </p>
